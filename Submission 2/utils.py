@@ -1,14 +1,14 @@
 #INSERT INTO EntidadeMusical VALUES(1,'Radiohead','imagem?','1985','Rock');
 
 tablePessoa = [
-        [1, "'Hugo'", "'Huguima'", "'password1'","'4490'","'Povoa'"],
-        [2, "'Samuel'", "'IAmTheKing'", "'password2'","'4860'","'Cabeceiras De Basto'"],
-        [3, "'Paulinho'", "'IAmTheKing'", "'password2'","'4490'","'Povoa'"],
-        [4, "'Thomas Yorke'", "'IAmTheKing'", "'password2'","'1234'","'Who knows'"],
-        [5, "'Johnny Greenwood'", "'IAmTheKing'", "'password2'","'1234'","''Who knows'"],
-        [6, "'Colin Greenwood'", "'IAmTheKing'", "'password2'","'1234'","''Who knows'"],
-        [7, "'Ed Obrien'", "'IAmTheKing'", "'password2'","'1234'","''Who knows'"],
-        [8, "'Philip Selway'", "'IAmTheKing'", "'password2'","'1234'","''Who knows'"]]
+        [1, "'Hugo'", "'password1'","'4490'","'Povoa'"],
+        [2, "'Samuel'", "'password2'","'4860'","'Cabeceiras De Basto'"],
+        [3, "'Paulinho'", "'password2'","'4490'","'Povoa'"],
+        [4, "'Thomas Yorke'", "'password2'","'1234'","'Who knows'"],
+        [5, "'Johnny Greenwood'", "'password2'","'1234'","'Who knows'"],
+        [6, "'Colin Greenwood'", "'password2'","'1234'","'Who knows'"],
+        [7, "'Ed Obrien'", "'password2'","'1234'","'Who knows'"],
+        [8, "'Philip Selway'", "'password2'","'1234'","'Who knows'"]]
 
 tableArtista = [
         [4, "'1985'"],
@@ -32,8 +32,8 @@ tableAlbum = [
         [1, "'OK Computer'", "'capa'", "'1997'"]]
 
 tableMusica = [
-        [1,1, "'Airbag'", "'IAmTheKing'", "'4:48'"],
-        [2,1, "'Paranoid Android'", "'IAmTheKing'", "'6:27'"],
+        [1,1, "'Airbag'", "'4:48'"],
+        [2,1, "'Paranoid Android'", "'6:27'"],
         [3,1,"'Subterranean Homesick Alien'","'4:28'"],
         [4,1,"'Exit Music'","'4:27'"],
         [5,1,"'Let Down'","'5:00'"],
@@ -41,7 +41,7 @@ tableMusica = [
         [7,1,"'Filler Hapier'","'1:57'"],
         [8,1,"'Electioneering'","'3:51'"],
         [9,1,"'Climbing Up the walls'","'4:45'"],
-        [10,1,"'No Suprises","'3:49'"],
+        [10,1,"'No Suprises'","'3:49'"],
         [11,1,"'Lucky'","'4:19'"],
         [12,1,"'The Tourist'","'5:27'"]]
 
@@ -77,12 +77,12 @@ def values(listName):
     return ', '.join(str(a) for a in listName)
 
         
-f = open("demo.sql", "w")
+f = open("povoar.sql", "w")
 
 for classeName in classes:
     f.write("-- Classe {} \n".format(classeName))
     for i in range(len(classes[classeName])):
-        f.write("INSERT INTO {} VALUES({})\n".format(classeName, values(classes[classeName][i])))
+        f.write("INSERT INTO {} VALUES({});\n".format(classeName, values(classes[classeName][i])))
     f.write("\n\n")
     
 f.close()

@@ -10,20 +10,18 @@ CREATE TABLE Pessoa (
   dataNascimento              VARCHAR(255),
   codPostal                   VARCHAR(255),
   morada                      VARCHAR(255)
-  PRIMARY KEY (id)
 
 );
 
 DROP TABLE IF EXISTS Artista;
 CREATE TABLE Artista (
-  id                          INTEGER REFERENCES Pessoa (id),
-  inicioCarreira              VARCHAR(255),
-  PRIMARY KEY (id)
+  id                          INTEGER,
+  inicioCarreira              VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS Utilizador;
 CREATE TABLE Utilizador (
-  id                         INTEGER REFERENCES Pessoa (id),
+  id                         INTEGER,
   email                      VARCHAR(255),
   username                   VARCHAR(255),
   password                   VARCHAR(255)
@@ -55,7 +53,7 @@ CREATE TABLE Album (
 DROP TABLE IF EXISTS Musica;
 CREATE TABLE Musica (
   idMusica                   INTEGER,
-  album                      REFERENCES Album(idAlbum)
+  album                      INTEGER,
   nome                       VARCHAR(255),
   duracao                    VARCHAR(255)
 );
@@ -63,19 +61,18 @@ CREATE TABLE Musica (
 DROP TABLE IF EXISTS EstiloMusical;
 CREATE TABLE EstiloMusical (
   idEstiloMusical            INTEGER,
-  nome                       VARCHAR(255),
-  duracao                    VARCHAR(255)
+  nome                       VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS Playlist;
 CREATE TABLE Playlist (
   idPlaylist                 INTEGER,
-  criador                    INTEGER REFERENCES  Utilizador(id),
+  criador                    INTEGER,
   nome                       VARCHAR(255),
   imagem                     VARCHAR(255),
   dataCriacao                VARCHAR(255),
   descricao                  VARCHAR(255),
-  privada                    VARCHAR(255),
+  privada                    VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS Sessao;
@@ -86,13 +83,13 @@ CREATE TABLE Sessao (
 
 DROP TABLE IF EXISTS Adicionada;
 CREATE TABLE Adicionada (
-  utilizador                 INTEGER REFERENCES Utilizador(id)
+  utilizador                 INTEGER
 );
 
 DROP TABLE IF EXISTS TempoOuvido;
 CREATE TABLE TempoOuvido (
-  musica                     INTEGER REFERENCES Musica(idMusica)
-  sessao                     INTEGER REFERENCES Sessao(idSessao)
+  musica                     INTEGER,
+  sessao                     INTEGER,
   duracao                    INTEGER
 );
 
