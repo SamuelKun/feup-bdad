@@ -20,3 +20,5 @@ C) Análise de Dependências Funcionais e Formas Normais
 (É que a meu ver, tecnicamente, fazendo apenas isso está certo :-/)
 -> É necessário criar DF para uma relação de (*,*) do modelo relacional?
 (Ex, Desempenha(artista->Artista,papel->Papel);)
+
+USAR AUTOINCREMENT NOS IDs?
