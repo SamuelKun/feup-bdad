@@ -1,7 +1,7 @@
 -- Classe Pessoa 
-INSERT INTO Pessoa VALUES(1, 'Hugo', 'password1', '4490', 'Povoa');
+INSERT INTO Pessoa VALUES(1, 'Hugo', 'password1', '4490', 'Povoa de Varzim');
 INSERT INTO Pessoa VALUES(2, 'Samuel', 'password2', '4860', 'Cabeceiras De Basto');
-INSERT INTO Pessoa VALUES(3, 'Paulinho', 'password2', '4490', 'Povoa');
+INSERT INTO Pessoa VALUES(3, 'Paulinho', '2000/10/16', '4490', 'Povoa de Varzim');
 INSERT INTO Pessoa VALUES(4, 'Thomas Yorke', 'password2', '1234', 'Who knows');
 INSERT INTO Pessoa VALUES(5, 'Johnny Greenwood', 'password2', '1234', 'Who knows');
 INSERT INTO Pessoa VALUES(6, 'Colin Greenwood', 'password2', '1234', 'Who knows');
@@ -20,7 +20,7 @@ INSERT INTO Artista VALUES(8, '1985');
 -- Classe Utilizador 
 INSERT INTO Utilizador VALUES(1, 'hugomguima@gmail.com', 'Huguima', 'password1');
 INSERT INTO Utilizador VALUES(2, 'samue@hotmail.com', 'IAmTheKing', 'password2');
-INSERT INTO Utilizador VALUES(3, 'pjbom.best@gmail.com', 'pjbom', 'password3');
+INSERT INTO Utilizador VALUES(3, 'pjbom.best@gmail.com', 'PJbomXD', 'sportingcp123');
 
 
 -- Classe Papel 
