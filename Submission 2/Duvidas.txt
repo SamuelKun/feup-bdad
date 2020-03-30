@@ -2,7 +2,8 @@
 
 B) Modelo Relacional
 
--> Par o modeo relacional, foi necessário criar id's. É suposto colocar apenas id, ou, por exemplo, idEntidadeMusical
+-> Para o modeo relacional, foi necessário criar id's. É suposto colocar apenas id, ou, por exemplo, idEntidadeMusical
+-> é necessário 2 ids para generalizações?(Exemplo: idArtista,idPessoa)
 -> É necessário dar nome a todas as relações?
 (No modelo UML a professora disse que não era necessário, porém, agora, temos que as distinguir de alguma forma)
 (No caso de adicionarmos um nome, é obrigatório que o nome dadp corresponda ao nome da relação no modelo UML?)
