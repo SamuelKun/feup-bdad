@@ -23,7 +23,8 @@ tableUtilizador = [
         [3,"'pjbom.best@gmail.com'","'pjbom'","'password3'"]]
 
 tablePapel = [
-        [1, 4, "'Vocalista'"]]
+        [1, "'Vocalista'"],
+        [2, "'Guitarrista'"]]
 
 tableEntidadeMusical = [
         [1, "'Radiohead'", "'imagem'", "'1985'","'Rock'"],
@@ -47,32 +48,80 @@ tableMusica = [
         [12,1,"'OK Computer'","'The Tourist'","'5:27'"]]
 
 tableEstiloMusical = [
-        [1, 1, "'Rock'"],
-        [2, 2, "'Rock'"],
-        [3, 3, "'Rock'"],
-        [4, 4, "'Rock'"],
-        [5, 5, "'Rock'"],
-        [6, 6, "'Rock'"],
-        [7, 7, "'Rock'"],
-        [8, 8, "'Rock'"],
-        [9, 9, "'Rock'"],
-        [10, 10, "'Rock'"],
-        [11, 11, "'Rock'"],
-        [12, 12, "'Rock'"]
+        [1, "'Rock'"],
         ]
 
 tablePlaylist = [
         [1, 1, "'me'", "'Playtest'", "'imagem'", "'2020'","'not bad'","'sim'"]]
 
 tableSessao = [
-        [1, 2, "'01/01/2020'"]]
-
-tableAdicionada =  [
-        [1, 10]]
+        [1, "'01/01/2020'"]]
 
 tableTempoOuvido = [
-        [1, 4, 1, "'10:00'"]
+        [1, 1, "'10:00'"]
         ]
+
+tableDesempenha = [
+        [4, 1],
+        [5, 1],
+        [6, 1],
+        [7, 2],
+        [8, 2]]
+
+tablePossui = [
+        [1, 1],
+        [2, 1]]
+
+tableMembro = [
+        [4,1], 
+        [5,1],
+        [6,1],
+        [7,1],
+        [8,1]
+        ]
+
+tableCompoe = [
+        [1,1]
+        ]
+
+tableFavoritoAlbum = [
+        [1, 1],
+        [2, 1],
+        [3, 1]
+        ]
+
+tableFavoritoMusica =  [
+        [1, 10, "'10-04-2019'"]
+        ]
+
+tableFavoritoPlaylist = [
+        [3, 1]
+        ]
+
+tableColabora = [
+        [3, 1]
+        ]
+
+tableEstiloMusica = [
+        [1, 1],
+        [1, 2],
+        [1, 3],
+        [1, 4],
+        [1, 5]
+        ]
+
+tableUtilizadorSessao = [
+        [1, 1]
+        ]
+
+tablePertence = [
+        [3, 1]
+        ]
+
+tableSegue = [
+        [3, 1]
+        ]
+
 
 classes = {"Pessoa" : tablePessoa,
            "Artista" : tableArtista,
@@ -84,8 +133,21 @@ classes = {"Pessoa" : tablePessoa,
            "EstiloMusical" : tableEstiloMusical,
            "Playlist" : tablePlaylist,
            "Sessao" : tableSessao,
-           "Adicionada": tableAdicionada,
-           "TempoOuvido" : tableTempoOuvido}
+           "TempoOuvido" : tableTempoOuvido,
+           "Desempenha" : tableDesempenha,
+           "Possui" : tablePossui,
+           "Membro" : tableMembro,
+           "Compoe" : tableCompoe,
+           "FavoritoAlbum" : tableFavoritoAlbum,
+           "FavoritoMusica" : tableFavoritoMusica,
+           "FavoritoPlaylist" : tableFavoritoPlaylist,
+           "Colabora" : tableColabora,
+           "EstiloMusica" : tableEstiloMusica,
+           "UtilizadorSessao" : tableUtilizadorSessao,
+           "Pertence" : tablePertence,
+           "Segue" : tableSegue,
+           }
+           
 
 def values(listName):
     return ', '.join(str(a) for a in listName)

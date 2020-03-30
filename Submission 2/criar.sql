@@ -14,7 +14,7 @@ CREATE TABLE Pessoa (
 
 DROP TABLE IF EXISTS Artista;
 CREATE TABLE Artista (
-  idArtista                    INTEGER                 PRIMARY KEY REFERENCES Pessoa(idPessoa),
+  idArtista                   INTEGER                 PRIMARY KEY REFERENCES Pessoa(idPessoa),
   inicioCarreira              VARCHAR(255)
 );
 
@@ -29,7 +29,6 @@ CREATE TABLE Utilizador (
 DROP TABLE IF EXISTS Papel;
 CREATE TABLE Papel (
   idPapel                    INTEGER                 PRIMARY KEY,
-  idArtista                   INTEGER                 REFERENCES Artista(idPessoa),
   atividade                  VARCHAR(255)            NOT NULL
 );
 
@@ -65,7 +64,7 @@ CREATE TABLE Musica (
 DROP TABLE IF EXISTS Playlist;
 CREATE TABLE Playlist (
   idPlaylist                 INTEGER                 PRIMARY KEY,
-  idPessoa                   INTEGER                 REFERENCES Utilizador(idPessoa),
+  idUtilizador               INTEGER                 REFERENCES Utilizador(idUtilizador),
   criador                    VARCHAR(255), --REFERENCES Utilizador(username)
   nome                       VARCHAR(255),
   imagem                     VARCHAR(255),
@@ -77,7 +76,6 @@ CREATE TABLE Playlist (
 DROP TABLE IF EXISTS EstiloMusical;
 CREATE TABLE EstiloMusical (
   idEstiloMusical            INTEGER                 PRIMARY KEY,
-  idMusica                   INTEGER                 REFERENCES Musica(idMusica),
   nome                       VARCHAR(255)            NOT NULL
 );
 
@@ -87,17 +85,10 @@ CREATE TABLE Sessao (
   dataInicio                 VARCHAR(255)
 );
 
-DROP TABLE IF EXISTS Adicionada;
-CREATE TABLE Adicionada (
-  idUtilizador               INTEGER                 REFERENCES Utilizador(idPessoa),
-  idMusica                   INTEGER                 REFERENCES Musica(idMusica)
-);
-
 DROP TABLE IF EXISTS TempoOuvido;
 CREATE TABLE TempoOuvido (
-  id                         INTEGER                 PRIMARY KEY,
-  idMusica                   INTEGER                 REFERENCES Musica,
-  idSessao                   INTEGER                 REFERENCES Sessao,
+  idMusica                   INTEGER                 REFERENCES Musica(idMusica),
+  idSessao                   INTEGER                 REFERENCES Sessao(idSessao),
   duracao                    INTEGER
 );
 
@@ -111,7 +102,7 @@ CREATE TABLE Desempenha (
 DROP TABLE IF EXISTS Possui;
 CREATE TABLE Possui (
   idPapel    INTEGER REFERENCES Papel(idPapel),
-  idEntidadeMusical  INTEGER REFERENCES Artista(idEntidadeMusical),
+  idEntidadeMusical  INTEGER REFERENCES EntidadeMusical(idEntidadeMusical),
   PRIMARY KEY(idPapel, idEntidadeMusical)
 );
 
@@ -140,13 +131,14 @@ DROP TABLE IF EXISTS FavoritoMusica;
 CREATE TABLE FavoritoMusica (
   idUtilizador INTEGER REFERENCES Utilizador(idUtilizador),
   idMusica INTEGER REFERENCES Musica(idMusica),
+  data                       INTEGER,
   PRIMARY KEY(idUtilizador, idMusica)
 );
 
 DROP TABLE IF EXISTS FavoritoPlaylist;
 CREATE TABLE FavoritoPlaylist (
   idUtilizador INTEGER REFERENCES Utilizador(idUtilizador),
-  idPlaylist INTEGER REFERENCES Album(idPlaylist),
+  idPlaylist INTEGER REFERENCES Playlist(idPlaylist),
   PRIMARY KEY(idUtilizador, idPlaylist)
 );
 
@@ -159,8 +151,8 @@ CREATE TABLE Colabora (
 
 DROP TABLE IF EXISTS EstiloMusica;
 CREATE TABLE EstiloMusica (
-  idEstiloMusical INTEGER REFERENCES EstiloMusical(idEstiloMusical),
-  idMusica INTEGER REFERENCES Musica(idMusica),
+  idEstiloMusical INTEGER NOT NULL REFERENCES EstiloMusical(idEstiloMusical),
+  idMusica INTEGER NOT NULL REFERENCES Musica(idMusica),
   PRIMARY KEY(idEstiloMusical, idMusica)
 );
 
@@ -183,5 +175,3 @@ CREATE TABLE Segue (
   idUtilizador        INTEGER PRIMARY KEY REFERENCES Utilizador(idUtilizador),
   idUtilizadorSeguido INTEGER REFERENCES Utilizador(idUtilizador)
 );
-
-PRAGMA foreign_keys = on;

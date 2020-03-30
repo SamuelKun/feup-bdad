@@ -24,7 +24,8 @@ INSERT INTO Utilizador VALUES(3, 'pjbom.best@gmail.com', 'pjbom', 'password3');
 
 
 -- Classe Papel 
-INSERT INTO Papel VALUES(1, 4, 'Vocalista');
+INSERT INTO Papel VALUES(1, 'Vocalista');
+INSERT INTO Papel VALUES(2, 'Guitarrista');
 
 
 -- Classe EntidadeMusical 
@@ -51,18 +52,7 @@ INSERT INTO Musica VALUES(12, 1, 'OK Computer', 'The Tourist', '5:27');
 
 
 -- Classe EstiloMusical 
-INSERT INTO EstiloMusical VALUES(1, 1, 'Rock');
-INSERT INTO EstiloMusical VALUES(2, 2, 'Rock');
-INSERT INTO EstiloMusical VALUES(3, 3, 'Rock');
-INSERT INTO EstiloMusical VALUES(4, 4, 'Rock');
-INSERT INTO EstiloMusical VALUES(5, 5, 'Rock');
-INSERT INTO EstiloMusical VALUES(6, 6, 'Rock');
-INSERT INTO EstiloMusical VALUES(7, 7, 'Rock');
-INSERT INTO EstiloMusical VALUES(8, 8, 'Rock');
-INSERT INTO EstiloMusical VALUES(9, 9, 'Rock');
-INSERT INTO EstiloMusical VALUES(10, 10, 'Rock');
-INSERT INTO EstiloMusical VALUES(11, 11, 'Rock');
-INSERT INTO EstiloMusical VALUES(12, 12, 'Rock');
+INSERT INTO EstiloMusical VALUES(1, 'Rock');
 
 
 -- Classe Playlist 
@@ -70,14 +60,73 @@ INSERT INTO Playlist VALUES(1, 1, 'me', 'Playtest', 'imagem', '2020', 'not bad',
 
 
 -- Classe Sessao 
-INSERT INTO Sessao VALUES(1, 2, '01/01/2020');
-
-
--- Classe Adicionada 
-INSERT INTO Adicionada VALUES(1, 10);
+INSERT INTO Sessao VALUES(1, '01/01/2020');
 
 
 -- Classe TempoOuvido 
-INSERT INTO TempoOuvido VALUES(1, 4, 1, '10:00');
+INSERT INTO TempoOuvido VALUES(1, 1, '10:00');
+
+
+-- Classe Desempenha 
+INSERT INTO Desempenha VALUES(4, 1);
+INSERT INTO Desempenha VALUES(5, 1);
+INSERT INTO Desempenha VALUES(6, 1);
+INSERT INTO Desempenha VALUES(7, 2);
+INSERT INTO Desempenha VALUES(8, 2);
+
+
+-- Classe Possui 
+INSERT INTO Possui VALUES(1, 1);
+INSERT INTO Possui VALUES(2, 1);
+
+
+-- Classe Membro 
+INSERT INTO Membro VALUES(4, 1);
+INSERT INTO Membro VALUES(5, 1);
+INSERT INTO Membro VALUES(6, 1);
+INSERT INTO Membro VALUES(7, 1);
+INSERT INTO Membro VALUES(8, 1);
+
+
+-- Classe Compoe 
+INSERT INTO Compoe VALUES(1, 1);
+
+
+-- Classe FavoritoAlbum 
+INSERT INTO FavoritoAlbum VALUES(1, 1);
+INSERT INTO FavoritoAlbum VALUES(2, 1);
+INSERT INTO FavoritoAlbum VALUES(3, 1);
+
+
+-- Classe FavoritoMusica 
+INSERT INTO FavoritoMusica VALUES(1, 10, '10-04-2019');
+
+
+-- Classe FavoritoPlaylist 
+INSERT INTO FavoritoPlaylist VALUES(3, 1);
+
+
+-- Classe Colabora 
+INSERT INTO Colabora VALUES(3, 1);
+
+
+-- Classe EstiloMusica 
+INSERT INTO EstiloMusica VALUES(1, 1);
+INSERT INTO EstiloMusica VALUES(1, 2);
+INSERT INTO EstiloMusica VALUES(1, 3);
+INSERT INTO EstiloMusica VALUES(1, 4);
+INSERT INTO EstiloMusica VALUES(1, 5);
+
+
+-- Classe UtilizadorSessao 
+INSERT INTO UtilizadorSessao VALUES(1, 1);
+
+
+-- Classe Pertence 
+INSERT INTO Pertence VALUES(3, 1);
+
+
+-- Classe Segue 
+INSERT INTO Segue VALUES(3, 1);
 
 
