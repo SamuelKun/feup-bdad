@@ -118,6 +118,7 @@ tableEstiloMusical = [
 # idPlaylsit, idutilizador, nome, imagem, datacriacao, descriçao, privada
 tablePlaylist = [
         [1, 1, "'Playtest'", "'imagem'", "'2020'","'not bad'", 0],
+        [1, 1, "'Playtest'", "'imagem'", "'2020'","'not bad'", 0],
         ]
 
 # idSessao, dia

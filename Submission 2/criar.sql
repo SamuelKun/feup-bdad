@@ -156,8 +156,8 @@ CREATE TABLE EstiloMusica (
 DROP TABLE IF EXISTS UtilizadorSessao;
 CREATE TABLE UtilizadorSessao (
   idUtilizador INTEGER REFERENCES Utilizador(idUtilizador),
-  idMusica INTEGER REFERENCES Musica(idMusica),
-  PRIMARY KEY(idUtilizador, idMusica)
+  idSessao INTEGER REFERENCES Sessao(idSessao),
+  PRIMARY KEY(idUtilizador, idSessao)
 );
 
 DROP TABLE IF EXISTS Pertence;
