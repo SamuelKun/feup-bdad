@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS Utilizador;
 CREATE TABLE Utilizador (
   idUtilizador               INTEGER                 PRIMARY KEY REFERENCES Pessoa(idPessoa),
   email                      VARCHAR(255)            NOT NULL,
-  username                   VARCHAR(255),
+  username                   VARCHAR(255)            NOT NULL,
   password                   VARCHAR(255)            NOT NULL
 );
 
@@ -46,7 +46,6 @@ CREATE TABLE EntidadeMusical (
 DROP TABLE IF EXISTS Album;
 CREATE TABLE Album (
   idAlbum                    INTEGER                 PRIMARY KEY,
-  idEntidadeMusical          INTEGER                 REFERENCES EntidadeMusical(idEntidadeMusical),
   nome                       VARCHAR(255)            NOT NULL,
   capa                       VARCHAR(255),
   anoLancamento              VARCHAR(255)
@@ -56,7 +55,6 @@ DROP TABLE IF EXISTS Musica;
 CREATE TABLE Musica (
   idMusica                   INTEGER                 PRIMARY KEY,
   idAlbum                    INTEGER                 REFERENCES Album(idAlbum),
-  album                      INTEGER,
   nome                       VARCHAR(255)            NOT NULL,
   duracao                    VARCHAR(255)            NOT NULL
 );
@@ -65,12 +63,11 @@ DROP TABLE IF EXISTS Playlist;
 CREATE TABLE Playlist (
   idPlaylist                 INTEGER                 PRIMARY KEY,
   idUtilizador               INTEGER                 REFERENCES Utilizador(idUtilizador),
-  criador                    VARCHAR(255), --REFERENCES Utilizador(username)
-  nome                       VARCHAR(255),
+  nome                       VARCHAR(255)            NOT NULL,
   imagem                     VARCHAR(255),
-  dataCriacao                VARCHAR(255),
+  dataCriacao                VARCHAR(255)            NOT NULL,
   descricao                  VARCHAR(255),
-  privada                    VARCHAR(255)
+  privada                    BOOLEAN
 );
 
 DROP TABLE IF EXISTS EstiloMusical;
@@ -101,9 +98,9 @@ CREATE TABLE Desempenha (
 
 DROP TABLE IF EXISTS Possui;
 CREATE TABLE Possui (
-  idPapel    INTEGER REFERENCES Papel(idPapel),
   idEntidadeMusical  INTEGER REFERENCES EntidadeMusical(idEntidadeMusical),
-  PRIMARY KEY(idPapel, idEntidadeMusical)
+  idPapel    INTEGER REFERENCES Papel(idPapel),
+  PRIMARY KEY(idEntidadeMusical, idPapel)
 );
 
 DROP TABLE IF EXISTS Membro;
@@ -165,13 +162,14 @@ CREATE TABLE UtilizadorSessao (
 
 DROP TABLE IF EXISTS Pertence;
 CREATE TABLE Pertence (
-  idMusica INTEGER REFERENCES Musica(idMusica),
   idPlaylist INTEGER REFERENCES Playlist(idPlaylist),
+  idMusica INTEGER NOT NULL REFERENCES Musica(idMusica),
   PRIMARY KEY(idMusica, idPlaylist)
 );
 
 DROP TABLE IF EXISTS Segue;
 CREATE TABLE Segue (
-  idUtilizador        INTEGER PRIMARY KEY REFERENCES Utilizador(idUtilizador),
-  idUtilizadorSeguido INTEGER REFERENCES Utilizador(idUtilizador)
+  idUtilizador        INTEGER REFERENCES Utilizador(idUtilizador),
+  idUtilizadorSeguido INTEGER REFERENCES Utilizador(idUtilizador),
+  PRIMARY KEY(idUtilizador, idUtilizadorSeguido)
 );

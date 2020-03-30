@@ -7,6 +7,10 @@ INSERT INTO Pessoa VALUES(5, 'Johnny Greenwood', 'Junho', '1234', 'Who knows');
 INSERT INTO Pessoa VALUES(6, 'Colin Greenwood', 'Junho', '1234', 'Who knows');
 INSERT INTO Pessoa VALUES(7, 'Ed Obrien', 'Junho', '1234', 'Who knows');
 INSERT INTO Pessoa VALUES(8, 'Philip Selway', 'Junho', '1234', 'Who knows');
+INSERT INTO Pessoa VALUES(9, 'Billie Eilish', 'Junho', '1234', 'Who knows');
+INSERT INTO Pessoa VALUES(10, 'Hayley Williams', 'Junho', '1234', 'Who knows');
+INSERT INTO Pessoa VALUES(11, 'Taylor York', 'Junho', '1234', 'Who knows');
+INSERT INTO Pessoa VALUES(12, 'Zac Farro', 'Junho', '1234', 'Who knows');
 
 
 -- Classe Artista 
@@ -15,6 +19,10 @@ INSERT INTO Artista VALUES(5, '1985');
 INSERT INTO Artista VALUES(6, '1985');
 INSERT INTO Artista VALUES(7, '1985');
 INSERT INTO Artista VALUES(8, '1985');
+INSERT INTO Artista VALUES(9, '2015');
+INSERT INTO Artista VALUES(10, '2003');
+INSERT INTO Artista VALUES(11, '2001');
+INSERT INTO Artista VALUES(12, '2004');
 
 
 -- Classe Utilizador 
@@ -24,39 +32,84 @@ INSERT INTO Utilizador VALUES(3, 'pjbom.best@gmail.com', 'pjbom', 'password3');
 
 
 -- Classe Papel 
-INSERT INTO Papel VALUES(1, 'Vocalista');
-INSERT INTO Papel VALUES(2, 'Guitarrista');
+INSERT INTO Papel VALUES(1, 'Vocal');
+INSERT INTO Papel VALUES(2, 'Guitarra');
+INSERT INTO Papel VALUES(3, 'Piano');
+INSERT INTO Papel VALUES(4, 'Bateria');
 
 
 -- Classe EntidadeMusical 
-INSERT INTO EntidadeMusical VALUES(1, 'Radiohead', 'imagem', '1985', 'Rock');
+INSERT INTO EntidadeMusical VALUES(1, 'Radiohead', 'imagem', '1985', 'descricao');
+INSERT INTO EntidadeMusical VALUES(2, 'Billie Eilish', 'imagem', NULL, 'descricao');
+INSERT INTO EntidadeMusical VALUES(3, 'Paramore', 'imagem', 2004, 'WE ARE PARAMORE!');
 
 
 -- Classe Album 
-INSERT INTO Album VALUES(1, 1, 'OK Computer', 'capa', '1997');
+INSERT INTO Album VALUES(1, 'OK Computer', 'capa', '1997');
+INSERT INTO Album VALUES(2, 'When We All Fall Asleep, Where Do We Go?', 'capa', 'YEAR');
+INSERT INTO Album VALUES(3, 'Brand New Eyes', 'capa', 'YEAR');
+INSERT INTO Album VALUES(4, 'All We Know Is Falling', 'capa', 'YEAR');
 
 
 -- Classe Musica 
-INSERT INTO Musica VALUES(1, 1, 'OK Computer', 'Airbag', '4:48');
-INSERT INTO Musica VALUES(2, 1, 'OK Computer', 'Paranoid Android', '6:27');
-INSERT INTO Musica VALUES(3, 1, 'OK Computer', 'Subterranean Homesick Alien', '4:28');
-INSERT INTO Musica VALUES(4, 1, 'OK Computer', 'Exit Music', '4:27');
-INSERT INTO Musica VALUES(5, 1, 'OK Computer', 'Let Down', '5:00');
-INSERT INTO Musica VALUES(6, 1, 'OK Computer', 'Karma Police', '4:24');
-INSERT INTO Musica VALUES(7, 1, 'OK Computer', 'Filler Hapier', '1:57');
-INSERT INTO Musica VALUES(8, 1, 'OK Computer', 'Electioneering', '3:51');
-INSERT INTO Musica VALUES(9, 1, 'OK Computer', 'Climbing Up the walls', '4:45');
-INSERT INTO Musica VALUES(10, 1, 'OK Computer', 'No Suprises', '3:49');
-INSERT INTO Musica VALUES(11, 1, 'OK Computer', 'Lucky', '4:19');
-INSERT INTO Musica VALUES(12, 1, 'OK Computer', 'The Tourist', '5:27');
+INSERT INTO Musica VALUES(1, 1, 'Airbag', '4:48');
+INSERT INTO Musica VALUES(2, 1, 'Paranoid Android', '6:27');
+INSERT INTO Musica VALUES(3, 1, 'Subterranean Homesick Alien', '4:28');
+INSERT INTO Musica VALUES(4, 1, 'Exit Music', '4:27');
+INSERT INTO Musica VALUES(5, 1, 'Let Down', '5:00');
+INSERT INTO Musica VALUES(6, 1, 'Karma Police', '4:24');
+INSERT INTO Musica VALUES(7, 1, 'Filler Hapier', '1:57');
+INSERT INTO Musica VALUES(8, 1, 'Electioneering', '3:51');
+INSERT INTO Musica VALUES(9, 1, 'Climbing Up the walls', '4:45');
+INSERT INTO Musica VALUES(10, 1, 'No Suprises', '3:49');
+INSERT INTO Musica VALUES(11, 1, 'Lucky', '4:19');
+INSERT INTO Musica VALUES(12, 1, 'The Tourist', '5:27');
+INSERT INTO Musica VALUES(13, 2, '!!!!!!!', 'DURACAO');
+INSERT INTO Musica VALUES(14, 2, 'Bad Guy', 'DURACAO');
+INSERT INTO Musica VALUES(15, 2, 'Xanny', 'DURACAO');
+INSERT INTO Musica VALUES(16, 2, 'You Should See Me In a Crown', 'DURACAO');
+INSERT INTO Musica VALUES(17, 2, 'All The Good Girls Go To Hell', 'DURACAO');
+INSERT INTO Musica VALUES(18, 2, 'Wish You Were Gay', 'DURACAO');
+INSERT INTO Musica VALUES(19, 2, 'When the Party is Over', 'DURACAO');
+INSERT INTO Musica VALUES(20, 2, '8', 'DURACAO');
+INSERT INTO Musica VALUES(21, 2, 'My Strange Addiction', 'DURACAO');
+INSERT INTO Musica VALUES(22, 2, 'Bury a Friend', 'DURACAO');
+INSERT INTO Musica VALUES(23, 2, 'Ilomilo', 'DURACAO');
+INSERT INTO Musica VALUES(24, 2, 'Listen Before I Go', 'DURACAO');
+INSERT INTO Musica VALUES(25, 2, 'I Love You', 'DURACAO');
+INSERT INTO Musica VALUES(26, 2, 'Goodbye', 'DURACAO');
+INSERT INTO Musica VALUES(27, 3, 'Careful', 'DURACAO');
+INSERT INTO Musica VALUES(28, 3, 'Ignorance', 'DURACAO');
+INSERT INTO Musica VALUES(29, 3, 'Playing God', 'DURACAO');
+INSERT INTO Musica VALUES(30, 3, 'Brick By Boring Brick', 'DURACAO');
+INSERT INTO Musica VALUES(31, 3, 'Turn It Off', 'DURACAO');
+INSERT INTO Musica VALUES(32, 3, 'The Only Exception', 'DURACAO');
+INSERT INTO Musica VALUES(33, 3, 'Feeling Sorry', 'DURACAO');
+INSERT INTO Musica VALUES(34, 3, 'Looking Up', 'DURACAO');
+INSERT INTO Musica VALUES(35, 3, 'Where The Lines Overlap', 'DURACAO');
+INSERT INTO Musica VALUES(36, 3, 'Misguided Ghosts', 'DURACAO');
+INSERT INTO Musica VALUES(37, 3, 'All I Wanted', 'DURACAO');
+INSERT INTO Musica VALUES(38, 4, 'All We Know', 'DURACAO');
+INSERT INTO Musica VALUES(39, 4, 'Pressure', 'DURACAO');
+INSERT INTO Musica VALUES(40, 4, 'Emergency', 'DURACAO');
+INSERT INTO Musica VALUES(41, 4, 'Brighter', 'DURACAO');
+INSERT INTO Musica VALUES(42, 4, 'Here We Go Again', 'DURACAO');
+INSERT INTO Musica VALUES(43, 4, 'Never Let This Go', 'DURACAO');
+INSERT INTO Musica VALUES(44, 4, 'Whoa', 'DURACAO');
+INSERT INTO Musica VALUES(45, 4, 'Conspiracy', 'DURACAO');
+INSERT INTO Musica VALUES(46, 4, 'Franklin', 'DURACAO');
+INSERT INTO Musica VALUES(47, 4, 'My Heart', 'DURACAO');
 
 
 -- Classe EstiloMusical 
 INSERT INTO EstiloMusical VALUES(1, 'Rock');
+INSERT INTO EstiloMusical VALUES(2, 'Indie');
+INSERT INTO EstiloMusical VALUES(3, 'Pop');
+INSERT INTO EstiloMusical VALUES(4, 'Grunge');
 
 
 -- Classe Playlist 
-INSERT INTO Playlist VALUES(1, 1, 'me', 'Playtest', 'imagem', '2020', 'not bad', 'sim');
+INSERT INTO Playlist VALUES(1, 1, 'Playtest', 'imagem', '2020', 'not bad', 0);
 
 
 -- Classe Sessao 
@@ -73,11 +126,22 @@ INSERT INTO Desempenha VALUES(5, 1);
 INSERT INTO Desempenha VALUES(6, 1);
 INSERT INTO Desempenha VALUES(7, 2);
 INSERT INTO Desempenha VALUES(8, 2);
+INSERT INTO Desempenha VALUES(9, 1);
+INSERT INTO Desempenha VALUES(9, 2);
+INSERT INTO Desempenha VALUES(10, 1);
+INSERT INTO Desempenha VALUES(10, 3);
+INSERT INTO Desempenha VALUES(11, 2);
+INSERT INTO Desempenha VALUES(12, 4);
 
 
 -- Classe Possui 
 INSERT INTO Possui VALUES(1, 1);
+INSERT INTO Possui VALUES(1, 2);
 INSERT INTO Possui VALUES(2, 1);
+INSERT INTO Possui VALUES(3, 1);
+INSERT INTO Possui VALUES(3, 2);
+INSERT INTO Possui VALUES(3, 3);
+INSERT INTO Possui VALUES(3, 4);
 
 
 -- Classe Membro 
@@ -86,10 +150,17 @@ INSERT INTO Membro VALUES(5, 1);
 INSERT INTO Membro VALUES(6, 1);
 INSERT INTO Membro VALUES(7, 1);
 INSERT INTO Membro VALUES(8, 1);
+INSERT INTO Membro VALUES(9, 2);
+INSERT INTO Membro VALUES(10, 3);
+INSERT INTO Membro VALUES(11, 3);
+INSERT INTO Membro VALUES(12, 3);
 
 
 -- Classe Compoe 
 INSERT INTO Compoe VALUES(1, 1);
+INSERT INTO Compoe VALUES(2, 2);
+INSERT INTO Compoe VALUES(3, 3);
+INSERT INTO Compoe VALUES(3, 4);
 
 
 -- Classe FavoritoAlbum 
@@ -116,6 +187,48 @@ INSERT INTO EstiloMusica VALUES(1, 2);
 INSERT INTO EstiloMusica VALUES(1, 3);
 INSERT INTO EstiloMusica VALUES(1, 4);
 INSERT INTO EstiloMusica VALUES(1, 5);
+INSERT INTO EstiloMusica VALUES(1, 6);
+INSERT INTO EstiloMusica VALUES(1, 7);
+INSERT INTO EstiloMusica VALUES(1, 8);
+INSERT INTO EstiloMusica VALUES(1, 9);
+INSERT INTO EstiloMusica VALUES(1, 10);
+INSERT INTO EstiloMusica VALUES(1, 11);
+INSERT INTO EstiloMusica VALUES(1, 12);
+INSERT INTO EstiloMusica VALUES(2, 13);
+INSERT INTO EstiloMusica VALUES(2, 14);
+INSERT INTO EstiloMusica VALUES(2, 15);
+INSERT INTO EstiloMusica VALUES(2, 16);
+INSERT INTO EstiloMusica VALUES(2, 17);
+INSERT INTO EstiloMusica VALUES(2, 18);
+INSERT INTO EstiloMusica VALUES(2, 19);
+INSERT INTO EstiloMusica VALUES(2, 20);
+INSERT INTO EstiloMusica VALUES(2, 21);
+INSERT INTO EstiloMusica VALUES(2, 22);
+INSERT INTO EstiloMusica VALUES(2, 23);
+INSERT INTO EstiloMusica VALUES(2, 24);
+INSERT INTO EstiloMusica VALUES(2, 25);
+INSERT INTO EstiloMusica VALUES(2, 26);
+INSERT INTO EstiloMusica VALUES(3, 27);
+INSERT INTO EstiloMusica VALUES(1, 28);
+INSERT INTO EstiloMusica VALUES(1, 29);
+INSERT INTO EstiloMusica VALUES(3, 30);
+INSERT INTO EstiloMusica VALUES(1, 31);
+INSERT INTO EstiloMusica VALUES(1, 32);
+INSERT INTO EstiloMusica VALUES(3, 33);
+INSERT INTO EstiloMusica VALUES(1, 34);
+INSERT INTO EstiloMusica VALUES(1, 35);
+INSERT INTO EstiloMusica VALUES(3, 36);
+INSERT INTO EstiloMusica VALUES(1, 37);
+INSERT INTO EstiloMusica VALUES(4, 38);
+INSERT INTO EstiloMusica VALUES(4, 39);
+INSERT INTO EstiloMusica VALUES(4, 40);
+INSERT INTO EstiloMusica VALUES(4, 41);
+INSERT INTO EstiloMusica VALUES(4, 42);
+INSERT INTO EstiloMusica VALUES(4, 43);
+INSERT INTO EstiloMusica VALUES(4, 44);
+INSERT INTO EstiloMusica VALUES(4, 45);
+INSERT INTO EstiloMusica VALUES(4, 46);
+INSERT INTO EstiloMusica VALUES(4, 47);
 
 
 -- Classe UtilizadorSessao 
@@ -123,7 +236,8 @@ INSERT INTO UtilizadorSessao VALUES(1, 1);
 
 
 -- Classe Pertence 
-INSERT INTO Pertence VALUES(3, 1);
+INSERT INTO Pertence VALUES(1, 1);
+INSERT INTO Pertence VALUES(1, 2);
 
 
 -- Classe Segue 

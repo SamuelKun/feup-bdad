@@ -1,4 +1,4 @@
-Duvidas para a segunda pare do Trabalho de BDAD:
+﻿Duvidas para a segunda pare do Trabalho de BDAD:
 
 B) Modelo Relacional
 
@@ -21,4 +21,9 @@ C) Análise de Dependências Funcionais e Formas Normais
 -> É necessário criar DF para uma relação de (*,*) do modelo relacional?
 (Ex, Desempenha(artista->Artista,papel->Papel);)
 
-USAR AUTOINCREMENT NOS IDs?
+USAR AUTOINCREMENT NOS IDs? -- Respondida na teórica -> NÃO USAR
+
+D) SQL
+
+Como fazer no caso de relações muitos para muitos em que é necessário pelo menos 1 (NOT NULL não está a dar throw do erro)
+Em qual usar a primary key?
