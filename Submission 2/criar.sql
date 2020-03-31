@@ -1,4 +1,4 @@
-PRAGMA foreign_keys = on;
+PRAGMA foreign_keys = off;
 .mode columns
 .headers on
 .nullvalue NULL
@@ -54,7 +54,8 @@ CREATE TABLE Musica (
   idMusica                   INTEGER                 PRIMARY KEY,
   idAlbum                    INTEGER                 REFERENCES Album(idAlbum),
   nome                       VARCHAR(255)            NOT NULL,
-  duracao                    VARCHAR(255)            NOT NULL
+  duracao                    VARCHAR(255),
+  CONSTRAINT ErroDuracao_Musica CHECK(duracao > 0)
 );
 
 DROP TABLE IF EXISTS Playlist;
@@ -84,7 +85,8 @@ DROP TABLE IF EXISTS TempoOuvido;
 CREATE TABLE TempoOuvido (
   idMusica                   INTEGER                 REFERENCES Musica(idMusica),
   idSessao                   INTEGER                 REFERENCES Sessao(idSessao),
-  duracao                    INTEGER
+  duracao                    INTEGER,
+  CONSTRAINT ErroDuracao_TempoOuvido CHECK(duracao > 0)
 );
 
 DROP TABLE IF EXISTS Desempenha;
@@ -171,3 +173,5 @@ CREATE TABLE Segue (
   idUtilizadorSeguido INTEGER REFERENCES Utilizador(idUtilizador),
   PRIMARY KEY(idUtilizador, idUtilizadorSeguido)
 );
+
+PRAGMA foreign_keys = on;
