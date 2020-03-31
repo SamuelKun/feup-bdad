@@ -41,8 +41,6 @@ CREATE TABLE EntidadeMusical (
   descricao                  VARCHAR(255)
 );
 
-
-
 DROP TABLE IF EXISTS Album;
 CREATE TABLE Album (
   idAlbum                    INTEGER                 PRIMARY KEY,
