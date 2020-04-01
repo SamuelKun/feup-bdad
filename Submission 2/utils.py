@@ -18,8 +18,10 @@ tablePessoa = [
         [13, "'Pedro Castro'",      "'Maio'",     "'4860'", "'Chacim'"],
         [14, "'Bernardo Vaz'",      "'Maio'" ,    "'4860'", "'Rua de Outeirinho'"],
         [15, "'Marta Sofia'",       "'Novembro'", "'3020'", "'Avenida Sá da Bandeira'"],
-        [16, "'Ines Machado'",      "'Janeiro'", "'3020'", "'Rua das Azeiteiras'"],
-        [17, "'Olena Shelvytska'",  "'Marco'",    "'79007'","'Lviv Snow Stree'"],]
+        [16, "'Ines Machado'",      "'Janeiro'",  "'3020'", "'Rua das Azeiteiras'"],
+        [17, "'Olena Shelvytska'",  "'Marco'",    "'79007'","'Lviv Snow Stree'"],
+        [18, "'Beatriz Mendes'",    "'Junho'",    "'4850'", "'Centro da Maia'"],
+        ]
 
 # idPessoa, anoInicio carreira
 tableArtista = [
@@ -43,6 +45,7 @@ tableUtilizador = [
         [15, "'teste2@hotmail.com'",    "'teste2'",     "'password3'"],
         [16, "'teste3@hotmail.com'",    "'teste3'",     "'password3'"],
         [17, "'teste4@hotmail.com'",    "'teste4'",     "'password3'"],
+        [18, "'ziniii@outlook.com'",    "'ZiniWhini'",  "'egirl1234'"],
         ]
 
 #idPapel, Nome
@@ -61,10 +64,10 @@ tableEntidadeMusical = [
 
 # id album, nome, capa, ano
 tableAlbum = [
-        [1, "'OK Computer'",                                "'capa'", "'1997'"],
-        [2, "'When We All Fall Asleep, Where Do We Go?'",   "'capa'", "'2019'"],
-        [3, "'Brand New Eyes'",                             "'capa'", "'2009'"],
-        [4, "'All We Know Is Falling'",                     "'capa'", "'2005'"],
+        [1, "'OK Computer'",                                "'https://i.imgur.com/7Prc1JI.jpg'", "'1997'"],
+        [2, "'When We All Fall Asleep, Where Do We Go?'",   "'https://i.imgur.com/181OJ2a.png'", "'2019'"],
+        [3, "'Brand New Eyes'",                             "'https://i.imgur.com/2zUv7QL.jpg'", "'2009'"],
+        [4, "'All We Know Is Falling'",                     "'https://i.imgur.com/Gh2Y21E.jpg'", "'2005'"],
 ]
 
 #idmusica, idalbum, nomeal
@@ -119,7 +122,7 @@ tableEstiloMusical = [
 
 # idPlaylsit, idutilizador, nome, imagem, datacriacao, descriçao, privada
 tablePlaylist = [
-        [1, 1, "'I Love 90'",           "'imagem'", "'2020'",   "'Best songs of 90's",              0],
+        [1, 1, "'I Love 90'",           "'imagem'", "'2020'",   "'Best songs of 90s'",              0],
         [2, 13, "'Indie'",              "'imagem'", "'2020'",   "'New Indie Trend'",                0],
         [3, 2, "'Me and my Friends'",   "'imagem'", "'2020'",   "'Put your favorite songs here!'",  1],
         ]
@@ -137,45 +140,45 @@ tableSessao = [
 tableTempoOuvido = [
         [1,  1, "'270'"],
         [1,  2, "'340'"],
-        [2 , 3, ""],
-        [2, 20, ""],
-        [2, 21, ""],
-        [2, 22, ""],
-        [2, 23, ""],
-        [2, 24, ""],
-        [2, 25, ""],
-        [2, 26, ""],
-        [2, 27, ""],
-        [2, 28, ""],
-        [2, 29, ""],
-        [2, 30, ""],
-        [2, 31, ""],
-        [2, 32, ""],
-        [2, 33, ""],
-        [2, 34, ""],
-        [2, 35, ""],
-        [2, 36, ""],
-        [2, 37, ""],
-        [3, 1,  ""],
-        [3, 2,  ""],
-        [3, 3,  ""],
-        [3, 4,  ""],
-        [3, 5,  ""],
-        [3, 6,  ""],
-        [3, 7,  ""],
-        [3, 8,  ""],
-        [3, 9,  ""],
-        [3, 10, ""],
-        [3, 11, ""],
-        [4, 13, ""],
-        [4, 14, ""],
-        [4, 15, ""],
-        [4, 16, ""],
-        [4, 17, ""],
-        [4, 18, ""],
-        [4, 19, ""],
-        [4, 20, ""],
-        [5, 13, ""],
+        [2,  3, "''"],
+        [2, 20, "''"],
+        [2, 21, "''"],
+        [2, 22, "''"],
+        [2, 23, "''"],
+        [2, 24, "''"],
+        [2, 25, "''"],
+        [2, 26, "''"],
+        [2, 27, "''"],
+        [2, 28, "''"],
+        [2, 29, "''"],
+        [2, 30, "''"],
+        [2, 31, "''"],
+        [2, 32, "''"],
+        [2, 33, "''"],
+        [2, 34, "''"],
+        [2, 35, "''"],
+        [2, 36, "''"],
+        [2, 37, "''"],
+        [3, 1,  "''"],
+        [3, 2,  "''"],
+        [3, 3,  "''"],
+        [3, 4,  "''"],
+        [3, 5,  "''"],
+        [3, 6,  "''"],
+        [3, 7,  "''"],
+        [3, 8,  "''"],
+        [3, 9,  "''"],
+        [3, 10, "''"],
+        [3, 11, "''"],
+        [4, 13, "''"],
+        [4, 14, "''"],
+        [4, 15, "''"],
+        [4, 16, "''"],
+        [4, 17, "''"],
+        [4, 18, "''"],
+        [4, 19, "''"],
+        [4, 20, "''"],
+        [5, 13, "''"],
         ]
 
 # Papel que o artista desempenha
@@ -247,12 +250,15 @@ tableFavoritoAlbum = [
 
 # idUtilizador, idMusica, data
 tableFavoritoMusica =  [
-        [1, 10, "'10-04-2019'"]
+        [2, 10, "'15/03/2020'"],
+        [14, 5, "'17/03/2020'"],
+        [18, 5, "'17/03/2020'"],
         ]
 
 #idUtilizador, idPlaylist
 tableFavoritoPlaylist = [
-        [3, 1]
+        [3, 1],
+        [2, 3],
         ]
 
 # idUtilizador, idPlaylist
@@ -287,36 +293,36 @@ tableEstiloMusica = [
         [2, 20],
         [2, 21],
         [2, 22],
-        [2, 23],
+        [4, 23],
         [2, 24],
-        [2, 25],
+        [4, 25],
         [2, 26],
         [3, 27],
         [1, 28],
         [1, 29],
         [3, 30],
         [1, 31],
-        [1, 32],
-        [3, 33],
+        [4, 32],
+        [4, 33],
         [1, 34],
-        [1, 35],
+        [4, 35],
         [3, 36],
         [1, 37],
         [4, 38],
-        [4, 39],
-        [4, 40],
-        [4, 41],
-        [4, 42],
-        [4, 43],
-        [4, 44],
-        [4, 45],
-        [4, 46],
-        [4, 47],
         ]
 
 # idUtilizador, idSessao
 tableUtilizadorSessao = [
-        [1, 1]
+        [1, 1],
+        [2, 2],
+        [2, 4],
+        [3,  3],
+        [13, 4],
+        [14, 5],
+        [15, 4],
+        [16, 4],
+        [17, 3],
+        [18, 5],
         ]
 
 # idPlaylist, idMusica
