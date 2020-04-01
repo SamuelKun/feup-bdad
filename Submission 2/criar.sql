@@ -14,13 +14,13 @@ CREATE TABLE Pessoa (
 
 DROP TABLE IF EXISTS Artista;
 CREATE TABLE Artista (
-  idArtista                   INTEGER                 PRIMARY KEY REFERENCES Pessoa(idPessoa),
+  idArtista                   INTEGER                 PRIMARY KEY REFERENCES Pessoa(idPessoa) ON DELETE SET NULL ON UPDATE CASCADE,
   inicioCarreira              VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS Utilizador;
 CREATE TABLE Utilizador (
-  idUtilizador               INTEGER                 PRIMARY KEY REFERENCES Pessoa(idPessoa),
+  idUtilizador               INTEGER                 PRIMARY KEY REFERENCES Pessoa(idPessoa) ON DELETE SET NULL ON UPDATE CASCADE,
   email                      VARCHAR(255)            NOT NULL,
   username                   VARCHAR(255)            NOT NULL,
   password                   VARCHAR(255)            NOT NULL
@@ -52,7 +52,7 @@ CREATE TABLE Album (
 DROP TABLE IF EXISTS Musica;
 CREATE TABLE Musica (
   idMusica                   INTEGER                 PRIMARY KEY,
-  idAlbum                    INTEGER                 REFERENCES Album(idAlbum),
+  idAlbum                    INTEGER                 REFERENCES Album(idAlbum) ON DELETE SET NULL ON UPDATE CASCADE,
   nome                       VARCHAR(255)            NOT NULL,
   duracao                    VARCHAR(255),
   CONSTRAINT ErroDuracao_Musica CHECK(duracao > 0)
@@ -61,7 +61,7 @@ CREATE TABLE Musica (
 DROP TABLE IF EXISTS Playlist;
 CREATE TABLE Playlist (
   idPlaylist                 INTEGER                 PRIMARY KEY,
-  idUtilizador               INTEGER                 REFERENCES Utilizador(idUtilizador),
+  idUtilizador               INTEGER                 REFERENCES Utilizador(idUtilizador) ON DELETE SET NULL ON UPDATE CASCADE,
   nome                       VARCHAR(255)            NOT NULL,
   imagem                     VARCHAR(255),
   dataCriacao                VARCHAR(255)            NOT NULL,
@@ -83,94 +83,94 @@ CREATE TABLE Sessao (
 
 DROP TABLE IF EXISTS TempoOuvido;
 CREATE TABLE TempoOuvido (
-  idSessao                   INTEGER                 REFERENCES Sessao(idSessao),
-  idMusica                   INTEGER                 REFERENCES Musica(idMusica),
+  idSessao                   INTEGER                 REFERENCES Sessao(idSessao) ON DELETE SET NULL ON UPDATE CASCADE,
+  idMusica                   INTEGER                 REFERENCES Musica(idMusica) ON DELETE SET NULL ON UPDATE CASCADE,
   duracao                    INTEGER,
   CONSTRAINT ErroDuracao_TempoOuvido CHECK(duracao > 0)
 );
 
 DROP TABLE IF EXISTS Desempenha;
 CREATE TABLE Desempenha (
-  idArtista  INTEGER REFERENCES Artista(idArtista),
-  idPapel    INTEGER REFERENCES Papel(idPapel),
+  idArtista  INTEGER REFERENCES Artista(idArtista) ON DELETE SET NULL ON UPDATE CASCADE,
+  idPapel    INTEGER REFERENCES Papel(idPapel) ON DELETE SET NULL ON UPDATE CASCADE ,
   PRIMARY KEY(idArtista, idPapel)
 );
 
 DROP TABLE IF EXISTS Possui;
 CREATE TABLE Possui (
-  idEntidadeMusical  INTEGER REFERENCES EntidadeMusical(idEntidadeMusical),
-  idPapel    INTEGER REFERENCES Papel(idPapel),
+  idEntidadeMusical  INTEGER REFERENCES EntidadeMusical(idEntidadeMusical) ON DELETE SET NULL ON UPDATE CASCADE,
+  idPapel    INTEGER REFERENCES Papel(idPapel) ON DELETE SET NULL ON UPDATE CASCADE,
   PRIMARY KEY(idEntidadeMusical, idPapel)
 );
 
 DROP TABLE IF EXISTS Membro;
 CREATE TABLE Membro (
-  idArtista          INTEGER REFERENCES Artista(idArtista),
-  idEntidadeMusical  INTEGER REFERENCES EntidadeMusical(idEntidadeMusical),
+  idArtista          INTEGER REFERENCES Artista(idArtista) ON DELETE SET NULL ON UPDATE CASCADE,
+  idEntidadeMusical  INTEGER REFERENCES EntidadeMusical(idEntidadeMusical) ON DELETE SET NULL ON UPDATE CASCADE,
   PRIMARY KEY(idArtista, idEntidadeMusical)
 );
 
 DROP TABLE IF EXISTS Compoe;
 CREATE TABLE Compoe (
-  idEntidadeMusical INTEGER REFERENCES EntidadeMusical(idEntidadeMusical),
-  idAlbum INTEGER REFERENCES Album(idAlbum),
+  idEntidadeMusical INTEGER REFERENCES EntidadeMusical(idEntidadeMusical) ON DELETE SET NULL ON UPDATE CASCADE,
+  idAlbum INTEGER REFERENCES Album(idAlbum) ON DELETE SET NULL ON UPDATE CASCADE,
   PRIMARY KEY(idEntidadeMusical, idAlbum)
 );
 
 DROP TABLE IF EXISTS FavoritoAlbum;
 CREATE TABLE FavoritoAlbum (
-  idUtilizador INTEGER REFERENCES Utilizador(idUtilizador),
-  idAlbum INTEGER REFERENCES Album(idAlbum),
+  idUtilizador INTEGER REFERENCES Utilizador(idUtilizador) ON DELETE SET NULL ON UPDATE CASCADE,
+  idAlbum INTEGER REFERENCES Album(idAlbum) ON DELETE SET NULL ON UPDATE CASCADE,
   PRIMARY KEY(idUtilizador, idAlbum)
 );
 
 DROP TABLE IF EXISTS FavoritoMusica;
 CREATE TABLE FavoritoMusica (
-  idUtilizador INTEGER REFERENCES Utilizador(idUtilizador),
-  idMusica INTEGER REFERENCES Musica(idMusica),
+  idUtilizador INTEGER REFERENCES Utilizador(idUtilizador) ON DELETE SET NULL ON UPDATE CASCADE,
+  idMusica INTEGER REFERENCES Musica(idMusica) ON DELETE SET NULL ON UPDATE CASCADE,
   data                       INTEGER,
   PRIMARY KEY(idUtilizador, idMusica)
 );
 
 DROP TABLE IF EXISTS FavoritoPlaylist;
 CREATE TABLE FavoritoPlaylist (
-  idUtilizador INTEGER REFERENCES Utilizador(idUtilizador),
-  idPlaylist INTEGER REFERENCES Playlist(idPlaylist),
+  idUtilizador INTEGER REFERENCES Utilizador(idUtilizador) ON DELETE SET NULL ON UPDATE CASCADE,
+  idPlaylist INTEGER REFERENCES Playlist(idPlaylist) ON DELETE SET NULL ON UPDATE CASCADE,
   PRIMARY KEY(idUtilizador, idPlaylist)
 );
 
 DROP TABLE IF EXISTS Colabora;
 CREATE TABLE Colabora (
-  idUtilizador INTEGER REFERENCES Utilizador(idUtilizador),
-  idPlaylist INTEGER REFERENCES Playlist(idPlaylist),
+  idUtilizador INTEGER REFERENCES Utilizador(idUtilizador) ON DELETE SET NULL ON UPDATE CASCADE,
+  idPlaylist INTEGER REFERENCES Playlist(idPlaylist) ON DELETE SET NULL ON UPDATE CASCADE,
   PRIMARY KEY(idUtilizador, idPlaylist)
 );
 
 DROP TABLE IF EXISTS EstiloMusica;
 CREATE TABLE EstiloMusica (
-  idEstiloMusical INTEGER NOT NULL REFERENCES EstiloMusical(idEstiloMusical),
-  idMusica INTEGER NOT NULL REFERENCES Musica(idMusica),
+  idEstiloMusical INTEGER NOT NULL REFERENCES EstiloMusical(idEstiloMusical) ON DELETE SET NULL ON UPDATE CASCADE,
+  idMusica INTEGER NOT NULL REFERENCES Musica(idMusica) ON DELETE SET NULL ON UPDATE CASCADE,
   PRIMARY KEY(idEstiloMusical, idMusica)
 );
 
 DROP TABLE IF EXISTS UtilizadorSessao;
 CREATE TABLE UtilizadorSessao (
-  idUtilizador INTEGER REFERENCES Utilizador(idUtilizador),
-  idSessao INTEGER REFERENCES Sessao(idSessao),
+  idUtilizador INTEGER REFERENCES Utilizador(idUtilizador) ON DELETE SET NULL ON UPDATE CASCADE,
+  idSessao INTEGER REFERENCES Sessao(idSessao) ON DELETE SET NULL ON UPDATE CASCADE,
   PRIMARY KEY(idUtilizador, idSessao)
 );
 
 DROP TABLE IF EXISTS Pertence;
 CREATE TABLE Pertence (
-  idPlaylist INTEGER REFERENCES Playlist(idPlaylist),
-  idMusica INTEGER NOT NULL REFERENCES Musica(idMusica),
+  idPlaylist INTEGER REFERENCES Playlist(idPlaylist) ON DELETE SET NULL ON UPDATE CASCADE,
+  idMusica INTEGER NOT NULL REFERENCES Musica(idMusica) ON DELETE SET NULL ON UPDATE CASCADE,
   PRIMARY KEY(idMusica, idPlaylist)
 );
 
 DROP TABLE IF EXISTS Segue;
 CREATE TABLE Segue (
-  idUtilizador        INTEGER REFERENCES Utilizador(idUtilizador),
-  idUtilizadorSeguido INTEGER REFERENCES Utilizador(idUtilizador),
+  idUtilizador        INTEGER REFERENCES Utilizador(idUtilizador) ON DELETE SET NULL ON UPDATE CASCADE,
+  idUtilizadorSeguido INTEGER REFERENCES Utilizador(idUtilizador) ON DELETE SET NULL ON UPDATE CASCADE,
   PRIMARY KEY(idUtilizador, idUtilizadorSeguido)
 );
 
