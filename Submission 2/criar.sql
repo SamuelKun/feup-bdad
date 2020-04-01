@@ -83,8 +83,8 @@ CREATE TABLE Sessao (
 
 DROP TABLE IF EXISTS TempoOuvido;
 CREATE TABLE TempoOuvido (
-  idMusica                   INTEGER                 REFERENCES Musica(idMusica),
   idSessao                   INTEGER                 REFERENCES Sessao(idSessao),
+  idMusica                   INTEGER                 REFERENCES Musica(idMusica),
   duracao                    INTEGER,
   CONSTRAINT ErroDuracao_TempoOuvido CHECK(duracao > 0)
 );

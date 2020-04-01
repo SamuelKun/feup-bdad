@@ -3,18 +3,23 @@ from bs4 import BeautifulSoup
 
 # idPessoa, Nome, DataNascimento, CodigoPostal, Morada
 tablePessoa = [
-        [1, "'Hugo'", "'Junho'","'4490'","'Povoa'"],
-        [2, "'Samuel'", "'Junho'","'4860'","'Cabeceiras De Basto'"],
-        [3, "'Paulinho'", "'Junho'","'4490'","'Povoa'"],
-        [4, "'Thomas Yorke'", "'Junho'","'1234'","'Who knows'"],
-        [5, "'Johnny Greenwood'", "'Junho'","'1234'","'Who knows'"],
-        [6, "'Colin Greenwood'", "'Junho'","'1234'","'Who knows'"],
-        [7, "'Ed Obrien'", "'Junho'","'1234'","'Who knows'"],
-        [8, "'Philip Selway'", "'Junho'","'1234'","'Who knows'"],
-        [9, "'Billie Eilish'", "'Junho'", "'1234'", "'Who knows'"],
-        [10,"'Hayley Williams'", "'Junho'", "'1234'", "'Who knows'"],
-        [11,"'Taylor York'", "'Junho'", "'1234'", "'Who knows'"],
-        [12,"'Zac Farro'", "'Junho'", "'1234'", "'Who knows'"],]
+        [1, "'Hugo'",               "'Julho'",    "'4490'", "'Praca dos Combatentes'"],
+        [2, "'Samuel'",             "'Junho'",    "'4860'", "'Rua Doutor Franscico Botelho'"],
+        [3, "'Paulinho'",           "'Agosto'",   "'4490'", "'Povoa - Portugal'"],
+        [4, "'Thomas Yorke'",       "'Junho'",    "NULL",   "NULL"],
+        [5, "'Johnny Greenwood'",   "'Junho'",    "NULL",   "NULL"],
+        [6, "'Colin Greenwood'",    "'Junho'",    "NULL",   "NULL"],
+        [7, "'Ed Obrien'",          "'Junho'",    "NULL",   "NULL"],
+        [8, "'Philip Selway'",      "'Junho'",    "NULL",   "NULL"],
+        [9, "'Billie Eilish'",      "'Junho'",    "NULL",   "NULL"],
+        [10,"'Hayley Williams'",    "'Junho'",    "NULL",   "NULL"],
+        [11,"'Taylor York'",        "'Junho'",    "NULL",   "NULL"],
+        [12,"'Zac Farro'",          "'Junho'",    "NULL",   "NULL"],
+        [13, "'Pedro Castro'",      "'Maio'",     "'4860'", "'Chacim'"],
+        [14, "'Bernardo Vaz'",      "'Maio'" ,    "'4860'", "'Rua de Outeirinho'"],
+        [15, "'Marta Sofia'",       "'Novembro'", "'3020'", "'Avenida Sá da Bandeira'"],
+        [16, "'Ines Machado'",      "'Janeiro'", "'3020'", "'Rua das Azeiteiras'"],
+        [17, "'Olena Shelvytska'",  "'Marco'",    "'79007'","'Lviv Snow Stree'"],]
 
 # idPessoa, anoInicio carreira
 tableArtista = [
@@ -30,9 +35,15 @@ tableArtista = [
 
 #idPessoa, email, username, password
 tableUtilizador = [
-        [1, "'hugomguima@gmail.com'", "'Huguima'", "'password1'"],
-        [2, "'samue@hotmail.com'", "'IAmTheKing'", "'password2'"],
-        [3,"'pjbom.best@gmail.com'","'pjbom'","'password3'"]]
+        [1,  "'hugomguima@gmail.com'",  "'Huguima'",    "'password1'"],
+        [2,  "'samue@hotmail.com'",     "'Samuh'",      "'password2'"],
+        [3,  "'pjbom.best@gmail.com'",  "'pjbom'",      "'password3'"],
+        [13, "'hugomguima@gmail.com'",  "'Huguima'",    "'password1'"],
+        [14, "'teste1@hotmail.com'",    "'teste1'",     "'password2'"],
+        [15, "'teste2@hotmail.com'",    "'teste2'",     "'password3'"],
+        [16, "'teste3@hotmail.com'",    "'teste3'",     "'password3'"],
+        [17, "'teste4@hotmail.com'",    "'teste4'",     "'password3'"],
+        ]
 
 #idPapel, Nome
 tablePapel = [
@@ -43,68 +54,59 @@ tablePapel = [
 
 # idEntidadeMusical, nome, imagem, ano fundacao, descricao
 tableEntidadeMusical = [
-        [1, "'Radiohead'", "'imagem'", "'1985'", "'descricao'"],
-        [2, "'Billie Eilish'", "'imagem'", "NULL", "'descricao'"],
-        [3, "'Paramore'", "'imagem'", "2004", "'WE ARE PARAMORE!'"],
+        [1, "'Radiohead'",      "'imagem'", "'1985'",   "'descricao'"],
+        [2, "'Billie Eilish'",  "'imagem'", "NULL",     "'descricao'"],
+        [3, "'Paramore'",       "'imagem'", "2004",     "'WE ARE PARAMORE!'"],
         ]
 
 # id album, nome, capa, ano
 tableAlbum = [
-        [1, "'OK Computer'", "'capa'", "'1997'"],
-        [2, "'When We All Fall Asleep, Where Do We Go?'", "'capa'", "'YEAR'"],
-        [3, "'Brand New Eyes'", "'capa'", "'YEAR'"],
-        [4, "'All We Know Is Falling'", "'capa'", "'YEAR'"],
+        [1, "'OK Computer'",                                "'capa'", "'1997'"],
+        [2, "'When We All Fall Asleep, Where Do We Go?'",   "'capa'", "'2019'"],
+        [3, "'Brand New Eyes'",                             "'capa'", "'2009'"],
+        [4, "'All We Know Is Falling'",                     "'capa'", "'2005'"],
 ]
 
 #idmusica, idalbum, nomeal
 tableMusica = [
-        [1,1,"'Airbag'", "'4:48'"],
-        [2,1, "'Paranoid Android'", "'6:27'"],
-        [3,1,"'Subterranean Homesick Alien'","'4:28'"],
-        [4,1,"'Exit Music'","'4:27'"],
-        [5,1,"'Let Down'","'5:00'"],
-        [6,1,"'Karma Police'","'4:24'"],
-        [7,1,"'Filler Hapier'","'1:57'"],
-        [8,1,"'Electioneering'","'3:51'"],
-        [9,1,"'Climbing Up the walls'","'4:45'"],
-        [10,1,"'No Suprises'","'3:49'"],
-        [11,1,"'Lucky'","'4:19'"],
-        [12,1,"'The Tourist'","'5:27'"],
-        [13, 2, "'!!!!!!!'", "'DURACAO'"],
-        [14, 2, "'Bad Guy'", "'DURACAO'"],
-        [15, 2, "'Xanny'", "'DURACAO'"],
-        [16, 2, "'You Should See Me In a Crown'", "'DURACAO'"],
-        [17, 2, "'All The Good Girls Go To Hell'",  "'DURACAO'"],
-        [18, 2, "'Wish You Were Gay'", "'DURACAO'"],
-        [19, 2, "'When the Party is Over'",  "'DURACAO'"],
-        [20, 2, "'8'",  "'DURACAO'"],
-        [21, 2, "'My Strange Addiction'",  "'DURACAO'"],
-        [22, 2, "'Bury a Friend'",  "'DURACAO'"],
-        [23, 2, "'Ilomilo'",  "'DURACAO'"],
-        [24, 2, "'Listen Before I Go'",  "'DURACAO'"],
-        [25, 2, "'I Love You'", "'DURACAO'"],
-        [26, 2, "'Goodbye'","'DURACAO'"],
-        [27, 3, "'Careful'", "'DURACAO'"],
-        [28, 3, "'Ignorance'", "'DURACAO'"],
-        [29, 3, "'Playing God'", "'DURACAO'"],
-        [30, 3, "'Brick By Boring Brick'", "'DURACAO'"],
-        [31, 3, "'Turn It Off'", "'DURACAO'"],
-        [32, 3, "'The Only Exception'", "'DURACAO'"],
-        [33, 3, "'Feeling Sorry'", "'DURACAO'"],
-        [34, 3, "'Looking Up'", "'DURACAO'"],
-        [35, 3, "'Where The Lines Overlap'", "'DURACAO'"],
-        [36, 3, "'Misguided Ghosts'", "'DURACAO'"],
-        [37, 3, "'All I Wanted'", "'DURACAO'"],
-        [38, 4, "'All We Know'", "'DURACAO'"],
-        [39, 4, "'Pressure'", "'DURACAO'"],
-        [40, 4, "'Emergency'", "'DURACAO'"],
-        [41, 4, "'Brighter'", "'DURACAO'"],
-        [42, 4, "'Here We Go Again'", "'DURACAO'"],
-        [43, 4, "'Never Let This Go'", "'DURACAO'"],
-        [44, 4, "'Whoa'", "'DURACAO'"],
-        [45, 4, "'Conspiracy'", "'DURACAO'"],
-        [46, 4, "'Franklin'", "'DURACAO'"],
-        [47, 4, "'My Heart'", "'DURACAO'"],
+        [ 1, 1,"'Airbag'",                          "'270'"],
+        [ 2, 1, "'Paranoid Android'",               "'340'"],
+        [ 3, 1,"'Subterranean Homesick Alien'",     "'273'"],
+        [ 4, 1,"'Exit Music'",                      "'267'"],
+        [ 5, 1,"'Let Down'",                        "'300'"],
+        [ 6, 1,"'Karma Police'",                    "'264'"],
+        [ 7, 1,"'Filler Hapier'",                   "'118'"],
+        [ 8, 1,"'Electioneering'",                  "'240'"],
+        [ 9, 1,"'Climbing Up the walls'",           "'300'"],
+        [10, 1,"'No Suprises'",                     "'220'"],
+        [11, 1,"'Lucky'",                           "'241'"],
+        [12, 1,"'The Tourist'",                     "'274'"],
+        [13, 2, "'Bad Guy'",                        "'213'"],
+        [14, 2, "'You Should See Me In a Crown'",   "'231'"],
+        [15, 2, "'All The Good Girls Go To Hell'",  "'198'"],
+        [16, 2, "'When the Party is Over'",         "'234'"],
+        [17, 2, "'My Strange Addiction'",           "'190'"],
+        [18, 2, "'Bury a Friend'",                  "'130'"],
+        [19, 2, "'Ilomilo'",                        "'140'"],
+        [20, 2, "'Listen Before I Go'",             "'165'"],
+        [21, 2, "'I Love You'",                     "'254'"],
+        [22, 3, "'Careful'",                        "'298'"],
+        [23, 3, "'Ignorance'",                      "'234'"],
+        [24, 3, "'Playing God'",                    "'324'"],
+        [25, 3, "'Brick By Boring Brick'",          "'290'"],
+        [26, 3, "'Turn It Off'",                    "'293'"],
+        [27, 3, "'The Only Exception'",             "'354'"],
+        [28, 3, "'Where The Lines Overlap'",        "'231'"],
+        [29, 3, "'Misguided Ghosts'",               "'132'"],
+        [30, 3, "'All I Wanted'",                   "'231'"],
+        [31, 4, "'All We Know'",                    "'324'"],
+        [32, 4, "'Pressure'",                       "'239'"],
+        [33, 4, "'Emergency'",                      "'197'"],
+        [34, 4, "'Brighter'",                       "'210'"],
+        [35, 4, "'Here We Go Again'",               "'207'"],
+        [36, 4, "'Never Let This Go'",              "'224'"],
+        [37, 4, "'Conspiracy'",                     "'240'"],
+        [38, 4, "'My Heart'",                       "'420'"],
 ]
 
 # idEstiloMusical, NomeEstilo
@@ -117,29 +119,78 @@ tableEstiloMusical = [
 
 # idPlaylsit, idutilizador, nome, imagem, datacriacao, descriçao, privada
 tablePlaylist = [
-        [1, 1, "'Playtest'", "'imagem'", "'2020'","'not bad'", 0],
-        [1, 1, "'Playtest'", "'imagem'", "'2020'","'not bad'", 0],
+        [1, 1, "'I Love 90'",           "'imagem'", "'2020'",   "'Best songs of 90's",              0],
+        [2, 13, "'Indie'",              "'imagem'", "'2020'",   "'New Indie Trend'",                0],
+        [3, 2, "'Me and my Friends'",   "'imagem'", "'2020'",   "'Put your favorite songs here!'",  1],
         ]
 
 # idSessao, dia
 tableSessao = [
-        [1, "'01/01/2020'"]]
+        [ 1, "'16/03/2020'"],
+        [ 2, "'16/03/2020'"],
+        [ 3, "'16/03/2020'"],
+        [ 4, "'17/03/2020'"],
+        [ 5, "'17/03/2020'"],
+        ]
 
-# idMusica, idSessao, duracao
+# idSessao, idMusica, duracao
 tableTempoOuvido = [
-        [1, 1, "'10:00'"]
+        [1,  1, "'270'"],
+        [1,  2, "'340'"],
+        [2 , 3, ""],
+        [2, 20, ""],
+        [2, 21, ""],
+        [2, 22, ""],
+        [2, 23, ""],
+        [2, 24, ""],
+        [2, 25, ""],
+        [2, 26, ""],
+        [2, 27, ""],
+        [2, 28, ""],
+        [2, 29, ""],
+        [2, 30, ""],
+        [2, 31, ""],
+        [2, 32, ""],
+        [2, 33, ""],
+        [2, 34, ""],
+        [2, 35, ""],
+        [2, 36, ""],
+        [2, 37, ""],
+        [3, 1,  ""],
+        [3, 2,  ""],
+        [3, 3,  ""],
+        [3, 4,  ""],
+        [3, 5,  ""],
+        [3, 6,  ""],
+        [3, 7,  ""],
+        [3, 8,  ""],
+        [3, 9,  ""],
+        [3, 10, ""],
+        [3, 11, ""],
+        [4, 13, ""],
+        [4, 14, ""],
+        [4, 15, ""],
+        [4, 16, ""],
+        [4, 17, ""],
+        [4, 18, ""],
+        [4, 19, ""],
+        [4, 20, ""],
+        [5, 13, ""],
         ]
 
 # Papel que o artista desempenha
 # idArtista, idPapel
 tableDesempenha = [
+        # 1 e 2 -> Radiohead
         [4, 1],
         [5, 1],
         [6, 1],
         [7, 2],
         [8, 2],
+        # 1 e 2 -> Billie
         [9, 1],
         [9, 2],
+        # 1, 2, 3 e 4 -> Paramore
         [10, 1],
         [10, 3],
         [11, 2],
@@ -148,9 +199,12 @@ tableDesempenha = [
 # Papeis que a banda possui
 # idEntidadeMusical, idPapel
 tablePossui = [
+        # 1 e 2 -> Radiohead
         [1, 1],
         [1, 2],
+        # 1 e 2 -> Billie no enquanto ela só canta
         [2, 1],
+        # 1, 2, 3 e 4 -> Paramore
         [3, 1],
         [3, 2],
         [3, 3],
@@ -158,12 +212,15 @@ tablePossui = [
 
 # idArtista, idEntidadeMusical
 tableMembro = [
-        [4,1], 
-        [5,1],
-        [6,1],
-        [7,1],
-        [8,1],
+        # Radiohead
+        [4, 1], 
+        [5, 1],
+        [6, 1],
+        [7, 1],
+        [8, 1],
+        #Billie
         [9, 2],
+        #Paramore
         [10, 3],
         [11, 3],
         [12, 3]
@@ -180,8 +237,12 @@ tableCompoe = [
 # idUtilizador, idMusica
 tableFavoritoAlbum = [
         [1, 1],
-        [2, 1],
-        [3, 1]
+        [2, 2],
+        [2, 3],
+        [2, 4],
+        [3, 1],
+        [14,1],
+        [17,3],
         ]
 
 # idUtilizador, idMusica, data
@@ -196,7 +257,10 @@ tableFavoritoPlaylist = [
 
 # idUtilizador, idPlaylist
 tableColabora = [
-        [3, 1]
+        [1, 3],
+        [3, 3],
+        [13, 3],
+        [15,3],
         ]
 
 # idEstiloMusica, idMusica
@@ -263,7 +327,12 @@ tablePertence = [
 
 # idUtilizador, idUtilizadorSeguido
 tableSegue = [
-        [3, 1]
+        [3, 1],
+        [1, 3],
+        [2, 1],
+        [2, 3],
+        [15, 2],
+        [13, 15],
         ]
 
 
