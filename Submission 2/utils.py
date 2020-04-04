@@ -6,7 +6,7 @@ tablePessoa = [
         #Utilizadors -> Dar nomes significativos
         [1, "'Hugo Guimaraes'",     "'17-07-2000'",    "'4490'", "'Praca dos Combatentes'"],
         [2, "'Samuel Fernandes'",   "'28-06-2000'",    "'4860'", "'Rua Doutor Franscico Botelho'"],
-        [3, "'Paulo Ribeiro'",      "'16-10-2000'",    "'4490'", "'Praca dos Combatentes'"],
+        [3, "'Paulo Ribeiro'",      "'16-10-2000'",    "'4490'", "'Praca do Almada'"],
         [4, "'Pedro Nero '",        "'28-01-1969'",    "'4490'", "'Praca dos Combatentes'"],
         [5, "'Ana Monteiro'",       "'24-08-1969'",    "'4490'", "'Praca dos Combatentes'"],
         [6, "'Marta Lopes'",        "'12-01-2000'",    "'4490'", "'Avenida 25 de Abril'"],
@@ -65,6 +65,10 @@ tablePessoa = [
         [49, "'Ella Yelich-OConnor'",               "'07-11-1996'",    "NULL", "'Epsom Auckland'"],
         # Eminem
         [50, "'Marshall Bruce Mathers'",            "'17-10-1972'",    "NULL",   "NULL"],
+        #Muse
+        [51, "'Matt Bellamy'",                      "'09-06-1978'",    "NULL",   "NULL"],
+        [52, "'Chris Wolstenholme'",                "'02-12-1978'",    "NULL",   "NULL"],
+        [53, "'Dominic Howard'",                    "'07-12-1977'",    "NULL",   "NULL"],
         ]
 
 # idPessoa, anoInicio carreira de cada artista
@@ -89,6 +93,9 @@ tableArtista = [
         [48, "'2010'"],
         [49, "'2009'"],
         [50, "'1988'"],
+        [51, "'1991'"],
+        [52, "'1991'"],
+        [53, "'1994'"],
         ]
 
 #        
@@ -96,7 +103,7 @@ tableArtista = [
 tableUtilizador = [
         [1,  "'hugomguima@gmail.com'",  "'Huguima'",    "'gagdafgdfgfdsg'"],
         [2,  "'samue@hotmail.com'",     "'Samuh'",      "'asvvaevaf'"],
-        [3,  "'pjbom.best@gmail.com'",  "'pjbom'",      "'asdfsad'"],
+        [3,  "'pjbom.best@gmail.com'",  "'PJbomXD'",      "'paulinho123'"],
         [4,  "'pedro.nero@hotmail.com'",  "'pnero'",    "'asafs1'"],
         [5,  "'ana.monteiro@hotmail.com'","'amonteiro'",     "'njkfj'"],
         [6,  "'m.lopes798@gmail.com'","'MartaLopes798'",     "'m798'"],
@@ -140,13 +147,14 @@ tableEntidadeMusical = [
         [1, "'Nirvana'",        "'imagem'", "1987",     "'Grande sucesso com o estilo grunge'"],
         [2, "'Foo Fighters'",   "'imagem'", "1994",     "'Criada após o fim dos Nirvana'"],
         [3, "'Radiohead'",      "'imagem'", "1985",     "'Creep foi o 1o e maior single deles'"],
-        [4, "'Billie Eilish'",  "'imagem'", "2016",     "'Ficou famosa com apensa 17 anos!!'"],
+        [4, "'Billie Eilish'",  "'imagem'", "2016",     "'Ficou famosa com apenas 17 anos!!'"],
         [5, "'Paramore'",       "'imagem'", "2004",     "'WE ARE PARAMORE!'"],
         [6, "'Lana Del Rey'",   "'imagem'", "2005",     "'Utiliza frequentemente referencias ao pop americano'"],
         [7, "'Daughter'",          "'imagem'", "2009",  "'Foi responsavel pela banda sonora de Life is Strange'"],
         [8, "'Lorde'",         "'imagem'", "1988",      "' nomeada Mulher Do Ano pela MTV, em 2013'"],
         [9, "'Eminem'",         "'imagem'", "1988",     "'Melhor rapper de sempre'"],
-
+        [10, "'Muse'",          "'https://imgur.com/51doL6Y'", "1994",     "'Excelente banda, musicas geniais!'"],
+        
         ]
 
 # id album, nome, capa, ano -> COLOCAR ANO E CAPA
@@ -161,7 +169,8 @@ tableAlbum = [
         [8, "'Born to Die'", "'capa'", "'YEAR'"],
         [9, "'If You Leav'", "'capa'", "'2013'"],
         [10, "'Melodrama'", "'capa'", "'YEAR'"],
-        [11, "'The Eminem Show'", "'capa'", "'YEAR'"]
+        [11, "'The Eminem Show'", "'capa'", "'YEAR'"],
+        [12, "'Origin of Symmetry'", "'https://imgur.com/a/O4C63Sp'", "'2001'"],
         
         ]
 
@@ -291,6 +300,19 @@ tableMusica = [
         [122, 11, "'Till I Collapse'", "'DURACAO'"],
         [123, 11, "'My Dads Gone Crazy'", "'DURACAO'"],
         [124, 11, "'Curtains Close'", "'DURACAO'"],
+        [125, 12, "'New Born'", "'6:04'"],
+        [126, 12, "'Bliss'", "'4:12'"],
+        [127, 12, "'Space Dementia'", "'6:21'"],
+        [128, 12, "'Hyper Music'", "'3:22'"],
+        [129, 12, "'Plug in Baby'", "'3:38'"],
+        [130, 12, "'Citizen Erased'", "'7:22'"],
+        [131, 12, "'Micro Cuts'", "'3:39'"],
+        [132, 12, "'Screenager'", "'4:20'"],
+        [133, 12, "'Dark Shines'", "'4:47'"],
+        [134, 12, "'Feeling Good'", "'3:19'"],
+        [135, 12, "'Megalomania'", "'4:40'"],
+        [136, 12, "'Futurism'", "'3:27'"],
+        
         ]
 
 
@@ -306,7 +328,8 @@ tableCompoe = [
         [6, 8],
         [7, 9],
         [8, 10],
-        [9, 11], 
+        [9, 11],
+        [10, 12],
         ]
 
 # idEstiloMusica, idMusica -> FEITO Fazer mais estilos de musica se calhar?
@@ -471,6 +494,19 @@ tableEstiloMusica = [
         [5, 122],
         [5, 123],
         [5, 124],
+        # Muse
+        [1, 125],
+        [1, 126],
+        [1, 127],
+        [1, 128],
+        [1, 129],
+        [1, 130],
+        [1, 131],
+        [1, 132],
+        [1, 133],
+        [1, 134],
+        [1, 135],
+        [1, 136],
         ]
 
 # idEstiloMusical, NomeEstilo -> FEITO
@@ -520,6 +556,13 @@ tableDesempenha = [
         [49, 6],
         # Eminem
         [50, 1],
+        # Muse
+        [51, 1],
+        [51, 2],
+        [51, 3],
+        [52, 1],
+        [52, 5],
+        [53, 4],
         ]
 
 # Papeis que a banda possui
@@ -554,8 +597,14 @@ tablePossui = [
         # Lorde
         [8, 1],
         [8, 6],
-        #Eminem
+        # Eminem
         [9, 1],
+        # Muse
+        [10, 1],
+        [10, 2],
+        [10, 3],
+        [10, 4],
+        [10, 5],
         ]
 
 # idArtista, idEntidadeMusical -> FEITO
@@ -589,6 +638,10 @@ tableMembro = [
         [49, 8],
         # Eminem
         [50, 9],
+        # Muse
+        [51, 10],
+        [52, 10],
+        [53, 10],
         ]
 
 
@@ -596,7 +649,8 @@ tableMembro = [
 tablePlaylist = [
         [1, 1, "'I Love 90'",           "'imagem'", "'2020'",   "'Best songs of 90s'",              0],
         [2, 2, "'Indie'",              "'imagem'", "'2020'",   "'New Indie Trend'",                0],
-        [3, 3, "'Me and my Friends'",   "'imagem'", "'2020'",   "'Put your favorite songs here!'",  1],
+        [3, 4, "'Me and my Friends'",   "'imagem'", "'2020'",   "'Put your favorite songs here!'",  1],
+        [4, 3, "'Best Rock Songs'",     "'imagem'", "'2020'",   "'The Perfect Playlist :D'", 0],
         ]
 
 # idSessao, dia -> CRIAR MAIS SESSÕES E COMPLETAR O TEMPO OUVIDO
@@ -630,8 +684,8 @@ tableSessao = [
         [ 27, "'03-04-2020'"],
         [ 28, "'04-04-2020'"],
         [ 29, "'04-04-2020'"],
-        [ 30, "'04-04-2020'"]
-
+        [ 30, "'04-04-2020'"],
+        [ 31, "'04-04-2020'"],
         ]
 
 # idSessao, idMusica, duracao
@@ -685,6 +739,9 @@ tableTempoOuvido = [
         [6, 13, "'183'"],
         [7, 33, "'164'"],
         [7, 34, "'176'"],
+        [31, 129, "'218'"],
+        [31, 125, "'364'"],
+        [31, 133, "'240'"],
         ]
 
 
@@ -694,7 +751,7 @@ tableFavoritoAlbum = [
         [2, 2],
         [2, 3],
         [2, 4],
-        [3, 1],
+        [3, 12],
         [4, 1],
         [5, 3],
         [6, 1],
@@ -740,9 +797,10 @@ tableFavoritoMusica =  [
         [1, 33, "'02-04-2020'"],
         [1, 34, "'02-04-2020'"],
         [1, 35, "'23-03-2020'"],
-        [3, 6, "'23-03-2020'"],
-        [3, 7, "'25-03-2020'"],
-        [3, 8, "'25-03-2020'"],
+        [3, 129, "'23-03-2020'"],
+        [3, 125, "'25-03-2020'"],
+        [3, 126, "'25-03-2020'"],
+        [3, 134, "'25-03-2020'"],
         [4, 5, "'26-03-2020'"],
         [4, 6, "'28-03-2020'"],
         [5, 7, "'28-03-2020'"],
@@ -792,7 +850,7 @@ tableFavoritoMusica =  [
 
 #idUtilizador, idPlaylist -> AUMENTAR ISTO! SÓ DEPOIS DE FAZER UTILIZADORES E PLAYLISTS TODAS
 tableFavoritoPlaylist = [
-        [3, 1],
+        [3, 4],
         [2, 3],
         [1, 2],
         [4, 1],
@@ -842,6 +900,7 @@ tableUtilizadorSessao = [
         [2, 2],
         [2, 4],
         [3, 3],
+        [3, 31],
         [1, 4],
         [1, 5],
         [1, 3],       
@@ -903,6 +962,10 @@ tablePertence = [
         [2, 25],
         [3, 28],
         [3, 32],
+        [4, 129],
+        [4, 125],
+        [4, 126],
+        [4, 134],
         ]
 
 # idUtilizador, idUtilizadorSeguido

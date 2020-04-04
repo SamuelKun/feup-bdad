@@ -1,4 +1,4 @@
-PRAGMA foreign_keys = on;
+PRAGMA foreign_keys = off;
 .mode columns
 .headers on
 .nullvalue NULL
