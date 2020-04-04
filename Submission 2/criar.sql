@@ -23,13 +23,14 @@ CREATE TABLE Utilizador (
   idUtilizador               INTEGER                 PRIMARY KEY REFERENCES Pessoa(idPessoa) ON DELETE SET NULL ON UPDATE CASCADE,
   email                      VARCHAR(255)            NOT NULL,
   username                   VARCHAR(255)            NOT NULL,
-  password                   VARCHAR(255)            NOT NULL
+  password                   VARCHAR(255)            NOT NULL,
+  CONSTRAINT fracaPassword CHECK(length(password) > 8)
 );
 
 DROP TABLE IF EXISTS Papel;
 CREATE TABLE Papel (
   idPapel                    INTEGER                 PRIMARY KEY,
-  atividade                  VARCHAR(255)            NOT NULL
+  atividade                  VARCHAR(255)            NOT NULL UNIQUE
 );
 
 DROP TABLE IF EXISTS EntidadeMusical;
@@ -54,8 +55,8 @@ CREATE TABLE Musica (
   idMusica                   INTEGER                 PRIMARY KEY,
   idAlbum                    INTEGER                 REFERENCES Album(idAlbum) ON DELETE SET NULL ON UPDATE CASCADE,
   nome                       VARCHAR(255)            NOT NULL,
-  duracao                    VARCHAR(255),
-  CONSTRAINT ErroDuracao_Musica CHECK(duracao > 0)
+  duracao                    INTEGER                 NOT NULL,
+  CONSTRAINT duracaoMusica CHECK(duracao > 0)
 );
 
 DROP TABLE IF EXISTS Playlist;
@@ -66,13 +67,13 @@ CREATE TABLE Playlist (
   imagem                     VARCHAR(255),
   dataCriacao                VARCHAR(255)            NOT NULL,
   descricao                  VARCHAR(255),
-  privada                    BOOLEAN
+  privada                    BOOLEAN                 NOT NULL
 );
 
 DROP TABLE IF EXISTS EstiloMusical;
 CREATE TABLE EstiloMusical (
   idEstiloMusical            INTEGER                 PRIMARY KEY,
-  nome                       VARCHAR(255)            NOT NULL
+  nome                       VARCHAR(255)            NOT NULL UNIQUE
 );
 
 DROP TABLE IF EXISTS Sessao;
@@ -86,7 +87,7 @@ CREATE TABLE TempoOuvido (
   idSessao                   INTEGER                 REFERENCES Sessao(idSessao) ON DELETE SET NULL ON UPDATE CASCADE,
   idMusica                   INTEGER                 REFERENCES Musica(idMusica) ON DELETE SET NULL ON UPDATE CASCADE,
   duracao                    INTEGER,
-  CONSTRAINT ErroDuracao_TempoOuvido CHECK(duracao > 0)
+  CONSTRAINT duracaoTempoOuvido CHECK(duracao > 0)
 );
 
 DROP TABLE IF EXISTS Desempenha;
