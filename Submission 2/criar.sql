@@ -46,7 +46,7 @@ CREATE TABLE Album (
   idAlbum                    INTEGER                 PRIMARY KEY,
   nome                       VARCHAR(255)            NOT NULL,
   capa                       VARCHAR(255),
-  anoLancamento              VARCHAR(255)
+  anoLancamento              INTEGER
 );
 
 DROP TABLE IF EXISTS Musica;

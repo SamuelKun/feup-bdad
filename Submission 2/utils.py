@@ -144,33 +144,33 @@ tablePapel = [
 
 # idEntidadeMusical, nome, imagem, ano fundacao, descricao
 tableEntidadeMusical = [
-        [1, "'Nirvana'",        "'imagem'", "1987",     "'Grande sucesso com o estilo grunge'"],
-        [2, "'Foo Fighters'",   "'imagem'", "1994",     "'Criada após o fim dos Nirvana'"],
-        [3, "'Radiohead'",      "'imagem'", "1985",     "'Creep foi o 1o e maior single deles'"],
-        [4, "'Billie Eilish'",  "'imagem'", "2016",     "'Ficou famosa com apenas 17 anos!!'"],
-        [5, "'Paramore'",       "'imagem'", "2004",     "'WE ARE PARAMORE!'"],
-        [6, "'Lana Del Rey'",   "'imagem'", "2005",     "'Utiliza frequentemente referencias ao pop americano'"],
-        [7, "'Daughter'",          "'imagem'", "2009",  "'Foi responsavel pela banda sonora de Life is Strange'"],
-        [8, "'Lorde'",         "'imagem'", "1988",      "' nomeada Mulher Do Ano pela MTV, em 2013'"],
-        [9, "'Eminem'",         "'imagem'", "1988",     "'Melhor rapper de sempre'"],
-        [10, "'Muse'",          "'https://imgur.com/51doL6Y'", "1994",     "'Excelente banda, musicas geniais!'"],
+        [1, "'Nirvana'",        "'https://imgur.com/sQ5G0n7.jpg'", "1987",     "'Grande sucesso com o estilo grunge'"],
+        [2, "'Foo Fighters'",   "'https://imgur.com/ZvzxczA.jpg'", "1994",     "'Criada após o fim dos Nirvana'"],
+        [3, "'Radiohead'",      "'https://imgur.com/2oHQiO1.jpg'", "1985",     "'Creep foi o 1o e maior single deles'"],
+        [4, "'Billie Eilish'",  "'https://imgur.com/Gv4Ijf6.jpg'", "2016",     "'Ficou famosa com apenas 17 anos!!'"],
+        [5, "'Paramore'",       "'https://imgur.com/bRlpyPj.jpg'", "2004",     "'WE ARE PARAMORE!'"],
+        [6, "'Lana Del Rey'",   "'https://imgur.com/FmZk0ba.jpg'", "2005",     "'Utiliza frequentemente referencias ao pop americano'"],
+        [7, "'Daughter'",       "'https://imgur.com/fQkzZ54.jpg'", "2009",     "'Foi responsavel pela banda sonora de Life is Strange'"],
+        [8, "'Lorde'",          "'https://imgur.com/fOzO8jd.jpg'", "1988",     "'Nomeada Mulher Do Ano pela MTV, em 2013'"],
+        [9, "'Eminem'",         "'https://imgur.com/A3Uav84.jpg'", "1988",     "'Melhor rapper de sempre'"],
+        [10, "'Muse'",          "'https://imgur.com/51doL6Y.jpg'", "1994",     "'Excelente banda, musicas geniais!'"],
         
         ]
 
-# id album, nome, capa, ano -> COLOCAR ANO E CAPA
+# id album, nome, capa, ano -> COLOCAR ANO E CAPAhttps://imgur.com/Gv4Ijf6.jpg
 tableAlbum = [
-        [1, "'Nevermind'", "'capa'", "'YEAR'"],
-        [2, "'In Utero'", "'capa'", "'YEAR'"],
-        [3, "'Concrete and Gold - '", "'capa'", "'YEAR'"],
-        [4, "'OK Computer'",                                "'https://i.imgur.com/7Prc1JI.jpg'", "'1997'"],
-        [5, "'When We All Fall Asleep, Where Do We Go?'",   "'https://i.imgur.com/181OJ2a.png'", "'2019'"],
-        [6, "'Brand New Eyes'",                             "'https://i.imgur.com/2zUv7QL.jpg'", "'2009'"],
-        [7, "'All We Know Is Falling'",                     "'https://i.imgur.com/Gh2Y21E.jpg'", "'2005'"],
-        [8, "'Born to Die'", "'capa'", "'YEAR'"],
-        [9, "'If You Leav'", "'capa'", "'2013'"],
-        [10, "'Melodrama'", "'capa'", "'YEAR'"],
-        [11, "'The Eminem Show'", "'capa'", "'YEAR'"],
-        [12, "'Origin of Symmetry'", "'https://imgur.com/a/O4C63Sp'", "'2001'"],
+        [1, "'Nevermind'",                                  "'https://imgur.com/pEvqHkD.jpg'", "1991"],
+        [2, "'In Utero'",                                   "'https://imgur.com/zJgJ1mC.jpg'", "1993"],
+        [3, "'Concrete and Gold'",                          "'https://imgur.com/b4TbjVO.jpg'", "2017"],
+        [4, "'OK Computer'",                                "'https://imgur.com/7Prc1JI.jpg'", "1997"],
+        [5, "'When We All Fall Asleep, Where Do We Go?'",   "'https://imgur.com/181OJ2a.png'", "2019"],
+        [6, "'Brand New Eyes'",                             "'https://imgur.com/2zUv7QL.jpg'", "2009"],
+        [7, "'All We Know Is Falling'",                     "'https://imgur.com/Gh2Y21E.jpg'", "2005"],
+        [8, "'Born to Die'",                                "'https://imgur.com/uBrvfNq.jpg'", "2012"],
+        [9, "'If You Leave'",                               "'https://imgur.com/zxyhdom.jpg'", "2013"],
+        [10, "'Melodrama'",                                 "'https://imgur.com/RjJRaBE.jpg'", "2017"],
+        [11, "'The Eminem Show'",                           "'https://imgur.com/fRAUYWb.jpg'", "2002"],
+        [12, "'Origin of Symmetry'",                        "'https://imgur.com/0jNvjCQ.jpg'", "2001"],
         
         ]
 
