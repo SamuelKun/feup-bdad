@@ -574,7 +574,7 @@ tableEstiloMusica = [
         ]
 
 # idEstiloMusical, NomeEstilo -> FEITO
-tableEstiloMusical = [
+tableMusicaEstilo = [
         [1, "'Alternative Rock'"],
         [2, "'Indie'"],
         [3, "'Pop'"],
@@ -1325,7 +1325,7 @@ classes = {"Pessoa" : tablePessoa,
            "FavoritoMusica" : tableFavoritoMusica,
            "FavoritoPlaylist" : tableFavoritoPlaylist,
            "Colabora" : tableColabora,
-           "EstiloMusica" : tableEstiloMusica,
+           "MusicaEstilo" : tableMusicaEstilo,
            "UtilizadorSessao" : tableUtilizadorSessao,
            "Pertence" : tablePertence,
            "Segue" : tableSegue,
