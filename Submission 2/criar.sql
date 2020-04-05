@@ -15,14 +15,14 @@ CREATE TABLE Pessoa (
 DROP TABLE IF EXISTS Artista;
 CREATE TABLE Artista (
   idArtista                   INTEGER                 PRIMARY KEY REFERENCES Pessoa(idPessoa) ON DELETE SET NULL ON UPDATE CASCADE,
-  inicioCarreira              VARCHAR(255)
+  inicioCarreira              INTEGER
 );
 
 DROP TABLE IF EXISTS Utilizador;
 CREATE TABLE Utilizador (
   idUtilizador               INTEGER                 PRIMARY KEY REFERENCES Pessoa(idPessoa) ON DELETE SET NULL ON UPDATE CASCADE,
-  email                      VARCHAR(255)            NOT NULL,
-  username                   VARCHAR(255)            NOT NULL,
+  email                      VARCHAR(255)            NOT NULL UNIQUE,
+  username                   VARCHAR(255)            NOT NULL UNIQUE,
   password                   VARCHAR(255)            NOT NULL,
   CONSTRAINT fracaPassword CHECK(length(password) > 8)
 );
@@ -147,8 +147,8 @@ CREATE TABLE Colabora (
   PRIMARY KEY(idUtilizador, idPlaylist)
 );
 
-DROP TABLE IF EXISTS EstiloMusica;
-CREATE TABLE EstiloMusica (
+DROP TABLE IF EXISTS MusicaEstilo;
+CREATE TABLE MusicaEstilo (
   idEstiloMusical            INTEGER                 NOT NULL REFERENCES EstiloMusical(idEstiloMusical) ON DELETE SET NULL ON UPDATE CASCADE,
   idMusica                   INTEGER                 NOT NULL REFERENCES Musica(idMusica) ON DELETE SET NULL ON UPDATE CASCADE,
   PRIMARY KEY(idEstiloMusical, idMusica)
