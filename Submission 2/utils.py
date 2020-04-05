@@ -7,7 +7,7 @@ tablePessoa = [
         [1, "'Hugo Guimaraes'",     "'2000-07-17'",    "'4490-438'", "'Praca dos Combatentes'"],
         [2, "'Samuel Fernandes'",   "'2000-06-28'",    "'4860-466'", "'Rua Doutor Franscico Botelho'"],
         [3, "'Paulo Ribeiro'",      "'2000-10-16'",    "'4490-421'", "'Praca do Almada'"],
-        [4, "'Pedro Nero '",        "'2000-01-1969'",    "'4490-438'", "'Praca dos Combatentes'"],
+        [4, "'Pedro Nero '",        "'2000-01-19'",    "'4490-438'", "'Praca dos Combatentes'"],
         [5, "'Ana Monteiro'",       "'1969-08-24'",    "'4490-438'", "'Praca dos Combatentes'"],
         [6, "'Marta Lopes'",        "'2000-01-12'",    "'4465-428'", "'Avenida 25 de Abril'"],
         [7, "'Marta Figueiredo'",   "'2000-01-30'",    "'4490-125'", "'Rua 31 de Janeiro'"],
