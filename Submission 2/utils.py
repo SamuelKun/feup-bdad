@@ -37,38 +37,38 @@ tablePessoa = [
         
         # Artistas -> Colocar a data de nascimento, codigo postal e rua
         #   NIRVANA
-        [31, "'Kurt Cobain'",                       "'20-02-1967'",    "01800-273",   "McGillen Street"],
-        [32, "'Krist Novoselic'",                   "'16-05-1965'",    "90220-155",   "BigTown Avenue"],
-        [33, "'Dave Grohl'",                        "'14-01-1969'",    "80892-256",   "Pretender Avenue"],
+        [31, "'Kurt Cobain'",       "'1967-02-20'",    "01800-273",   "McGillen Street"],
+        [32, "'Krist Novoselic'",   "'1965-05-16'",    "90220-155",   "BigTown Avenue"],
+        [33, "'Dave Grohl'",        "'1969-01-14'",    "80892-256",   "Pretender Avenue"],
         # FOO FIGHTERS
-        [34,"'Nate Mendel'",                        "'02-12-1968'",    "58235-766",   "Flower Sreet"],
-        [35,"'Taylor Hawkins'",                     "'17-02-1972'",    "76008-355",   "5th of June Street"],
+        [34,"'Nate Mendel'",        "'1968-12-02'",    "58235-766",   "Flower Sreet"],
+        [35,"'Taylor Hawkins'",     "'1962-02-17'",    "76008-355",   "5th of June Street"],
         # RADIOHEAD
-        [36, "'Thomas Yorke'",                      "'07-10-1968'",    "33368-512",   "Route 214"],
-        [37, "'Johnny Greenwood'",                  "'05-11-1971'",    "27813-221",   "5th Avenue"],
-        [38, "'Colin Greenwood'",                   "'15-04-1968'",    "27813-647",   "Major Campbell Street"],
-        [39, "'Ed Obrien'",                         "'26-06-1969'",    "27814-331",   "Small path"],
-        [40, "'Philip Selway'",                     "'23-05-1967'",    "54221-446",   "Route 20"],
+        [36, "'Thomas Yorke'",      "'1968-10-07'",    "33368-512",   "Route 214"],
+        [37, "'Johnny Greenwood'",  "'1971-11-05'",    "27813-221",   "5th Avenue"],
+        [38, "'Colin Greenwood'",   "'1968-04-15'",    "27813-647",   "Major Campbell Street"],
+        [39, "'Ed Obrien'",         "'1969-06-26'",    "27814-331",   "Small path"],
+        [40, "'Philip Selway'",     "'1967-05-23'",    "54221-446",   "Route 20"],
         # BILLIE EILISH
-        [41, "'Billie Eilish'",                     "'18-12-2001'",    "66722-666",   "Lil Street"],
+        [41, "'Billie Eilish'",     "'2001-12-18'",    "66722-666",   "Lil Street"],
         #Paramore
-        [42,"'Hayley Williams'",                    "'27-12-1988'",    "65352-322",   "504 Street"],
-        [43,"'Taylor York'",                        "'17-12-1989'",    "48569-669",   "New Street"],
-        [44,"'Zac Farro'",                          "'04-06-1990'",    "78845-541",   "Father Brown Street"],
+        [42,"'Hayley Williams'",    "'1998-12-27'",    "65352-322",   "504 Street"],
+        [43,"'Taylor York'",        "'1989-12-17'",    "48569-669",   "New Street"],
+        [44,"'Zac Farro'",          "'1990-06-04'",    "78845-541",   "Father Brown Street"],
         # Lana del Rey
-        [45,"'Elizabeth Grant'",                    "'21-06-1985'",    "23141-587",   "Club's Square"],
+        [45,"'Elizabeth Grant'",    "'1985-06-21'",    "23141-587",   "Club's Square"],
         #Daughter
-        [46, "'Elena Tonra'",                       "'15-01-1990'",    "44751-417",   "Math Jones Street"],
-        [47, "'Igor Haefeli'",                      "'07-03-1987'",    "25874-968",   "Tiana Square"],
-        [48, "'Remi Aguilella'",                    "'15-02-1977'",    "96985-742",   "Bellatrix Avenue"],
+        [46, "'Elena Tonra'",       "'1990-01-15'",    "44751-417",   "Math Jones Street"],
+        [47, "'Igor Haefeli'",      "'1987-03-07'",    "25874-968",   "Tiana Square"],
+        [48, "'Remi Aguilella'",    "'1977-02-15'",    "96985-742",   "Bellatrix Avenue"],
         # Lorde
-        [49, "'Ella Yelich-OConnor'",               "'07-11-1996'",    "47742-568", "'Epsom Auckland'"],
+        [49, "'Ella Yelich-OConnor'","'1996-11-07'",   "47742-568", "'Epsom Auckland'"],
         # Eminem
-        [50, "'Marshall Bruce Mathers'",            "'17-10-1972'",    "12536-887",   "John's Square"],
+        [50, "'Marshall Bruce Mathers'","'1972-10-17'","12536-887",   "John's Square"],
         #Muse
-        [51, "'Matt Bellamy'",                      "'09-06-1978'",    "89451-213",   "Route 404"],
-        [52, "'Chris Wolstenholme'",                "'02-12-1978'",    "36498-235",   "Maitland Street"],
-        [53, "'Dominic Howard'",                    "'07-12-1977'",    "14764-354",   "Silva Avenue"],
+        [51, "'Matt Bellamy'",      "'1978-06-09'",    "89451-213",   "Route 404"],
+        [52, "'Chris Wolstenholme'","'1978-12-02'",    "36498-235",   "Maitland Street"],
+        [53, "'Dominic Howard'",    "'1977-12-07'",    "14764-354",   "Silva Avenue"],
         ]
 
 # idPessoa, anoInicio carreira de cada artista
