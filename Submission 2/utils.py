@@ -333,7 +333,7 @@ tableCompoe = [
         ]
 
 # idEstiloMusica, idMusica -> FEITO Fazer mais estilos de musica se calhar?
-tableEstiloMusica = [
+tableMusicaEstilo = [
         #Nirvana Songs -> Rock and Grunge
         [1, 1],
         [1, 2],
