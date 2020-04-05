@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 # idPessoa, Nome, DataNascimento, CodigoPostal, Morada
 tablePessoa = [
-        #Utilizadors -> Dar nomes significativos
+        # Utilizadores -> Dar nomes significativos
         [1, "'Hugo Guimaraes'",     "'2000-07-17'",    "'4490-438'", "'Praca dos Combatentes'"],
         [2, "'Samuel Fernandes'",   "'2000-06-28'",    "'4860-466'", "'Rua Doutor Franscico Botelho'"],
         [3, "'Paulo Ribeiro'",      "'2000-10-16'",    "'4490-421'", "'Praca do Almada'"],
@@ -51,13 +51,13 @@ tablePessoa = [
         [40, "'Philip Selway'",                     "'1967-05-23'",    "'54221-446'",   "'Route 20'"],
         # BILLIE EILISH
         [41, "'Billie Eilish'",                     "'2001-12-18'",    "'66722-666'",   "'Lil Street'"],
-        #Paramore
+        # Paramore
         [42,"'Hayley Williams'",                    "'1998-12-27'",    "'65352-322'",   "'504 Street'"],
         [43,"'Taylor York'",                        "'1989-12-17'",    "'48569-669'",   "'New Street'"],
         [44,"'Zac Farro'",                           "'1990-06-04'",    "'78845-541'",   "'Father Brown Street'"],
         # Lana del Rey
         [45,"'Elizabeth Grant'",                    "'1985-06-21'",    "'23141-587'",   "'Clubs Square'"],
-        #Daughter
+        # Daughter
         [46, "'Elena Tonra'",                       "'1990-01-15'",    "'44751-417'",   "'Math Jones Street'"],
         [47, "'Igor Haefeli'",                      "'1987-03-07'",    "'25874-968'",   "'Tiana Square'"],
         [48, "'Remi Aguilella'",                    "'1977-02-15'",    "'96985-742'",   "'Bellatrix Avenue'"],
@@ -65,10 +65,14 @@ tablePessoa = [
         [49, "'Ella Yelich-OConnor'",               "'1996-11-07'",    "'47742-568'",   "'Epsom Auckland'"],
         # Eminem
         [50, "'Marshall Bruce Mathers'",            "'1972-10-17'",    "'12536-887'",   "'Johns Square'"],
-        #Muse
+        # Muse
         [51, "'Matt Bellamy'",                      "'1978-06-09'",    "'89451-213'",   "'Route 404'"],
         [52, "'Chris Wolstenholme'",                "'1978-12-02'",    "'36498-235'",   "'Maitland Street'"],
         [53, "'Dominic Howard'",                    "'1977-12-07'",    "'14764-354'",   "'Silva Avenue'"],
+        # Green Day
+        [54, "'Billie Joe Armstrong'",              "'17-02-1972'",    "'64337-420'",   "'Green Avenue'"],
+        [55, "'Mike Dirnt'",                        "'04-05-1972'",    "'83366-334'",   "'Punk Street'"],
+        [56, "'Tre Cool'",                          "'09-12-1972'",    "'24679-629'",   "'Crazy Square'"],
         ]
 
 # idPessoa, anoInicio carreira de cada artista
@@ -96,6 +100,9 @@ tableArtista = [
         [51, "1991"],
         [52, "1991"],
         [53, "1994"],
+        [54, "1987"],
+        [55, "1987"],
+        [56, "1990"],
         ]
 
 #        
@@ -154,6 +161,7 @@ tableEntidadeMusical = [
         [8, "'Lorde'",          "'https://imgur.com/fOzO8jd.jpg'", "1988",     "'Nomeada Mulher Do Ano pela MTV, em 2013'"],
         [9, "'Eminem'",         "'https://imgur.com/A3Uav84.jpg'", "1988",     "'Melhor rapper de sempre'"],
         [10, "'Muse'",          "'https://imgur.com/51doL6Y.jpg'", "1994",     "'Excelente banda, musicas geniais!'"],
+        [11, "'Green Day'",     "'https://imgur.com/WIojvyv.jpg'", "1986",     "'Do melhor do Punk Rock yeahhh'"],
         
         ]
 
@@ -171,6 +179,7 @@ tableAlbum = [
         [10, "'Melodrama'",                                 "'https://imgur.com/RjJRaBE.jpg'", "2017"],
         [11, "'The Eminem Show'",                           "'https://imgur.com/fRAUYWb.jpg'", "2002"],
         [12, "'Origin of Symmetry'",                        "'https://imgur.com/0jNvjCQ.jpg'", "2001"],
+        [13, "'American Idiot'",                            "'https://imgur.com/LWZgliH.jpg'", "2004"]
         
         ]
 
@@ -312,6 +321,19 @@ tableMusica = [
         [134, 12, "'Feeling Good'", 199],
         [135, 12, "'Megalomania'", 280],
         [136, 12, "'Futurism'", 267],
+        [137, 13, "'American Idiot'", 174],
+        [138, 13, "'Jesus Of Suburbia'", 548],
+        [139, 13, "'Holiday'", 282],
+        [140, 13, "'Boulevard Of Broken Dreams'", 288],
+        [141, 13, "'Are We The Waiting'", 163],
+        [142, 13, "'St Jimmy'", 176],
+        [143, 13, "'Give Me Novacaine'", 207],
+        [144, 13, "'Shes a Rebel'", 122],
+        [145, 13, "'Extraordinary Girl'", 216],
+        [146, 13, "'Letterbomb'", 248],
+        [147, 13, "'Wake Me Up When September Ends'", 285],
+        [148, 13, "'Homecoming'", 558],
+        [149, 13, "'Whatsername'", 252]
         
         ]
 
@@ -330,6 +352,7 @@ tableCompoe = [
         [8, 10],
         [9, 11],
         [10, 12],
+        [11, 13]
         ]
 
 # idEstiloMusica, idMusica -> FEITO Fazer mais estilos de musica se calhar?
@@ -360,46 +383,46 @@ tableMusicaEstilo = [
         [1, 23],
         [1, 24],
         [1, 25],
-        [2, 1],
-        [2, 2],
-        [2, 3],
-        [2, 4],
-        [2, 5],
-        [2, 6],
-        [2, 7],
-        [2, 8],
-        [2, 9],
-        [2, 10],
-        [2, 11],
-        [2, 12],
-        [2, 13],
-        [2, 14],
-        [2, 15],
-        [2, 16],
-        [2, 17],
-        [2, 18],
-        [2, 19],
-        [2, 20],
-        [2, 21],
-        [2, 22],
-        [2, 23],
-        [2, 24],
-        [2, 25],
+        [4, 1],
+        [4, 2],
+        [4, 3],
+        [4, 4],
+        [4, 5],
+        [4, 6],
+        [4, 7],
+        [4, 8],
+        [4, 9],
+        [4, 10],
+        [4, 11],
+        [4, 12],
+        [4, 13],
+        [4, 14],
+        [4, 15],
+        [4, 16],
+        [4, 17],
+        [4, 18],
+        [4, 19],
+        [4, 20],
+        [4, 21],
+        [4, 22],
+        [4, 23],
+        [4, 24],
+        [4, 25],
         # Foo Fighters - Rock and some grunge
         [1, 26],
-        [1, 27],
+        [2, 27],
         [1, 28],
         [1, 29],
         [2, 29],
         [1, 30],
-        #RadioHead
+        # RadioHead
         [1, 31],
         [1, 32],
         [1, 33],
         [1, 34],
         [1, 35],
         [1, 36],
-        # Billie Eilish - Indie
+        # Billie Eilish - Indie and Pop
         [2, 38],
         [2, 39],
         [2, 40],
@@ -410,29 +433,40 @@ tableMusicaEstilo = [
         [2, 45],
         [2, 46],
         [2, 47],
-        # Paramore
-        [2, 48],
-        [2, 49],
-        [2, 50],
-        [2, 51],
-        [2, 52],
-        [2, 53],
-        [2, 54],
-        [2, 55],
-        [2, 56],
-        [2, 57],
-        [2, 58],
-        [2, 59],
-        [2, 60],
-        [2, 61],
-        [2, 62],
-        [2, 63],
-        [2, 64],
-        [2, 65],
-        [2, 66],
-        [2, 67],
-        [2, 68],
-        # Lana
+        [3, 38],
+        [3, 39],
+        [3, 40],
+        [3, 41],
+        [3, 42],
+        [3, 44],
+        [3, 47],
+        # Paramore - Alternative Rock and Pop Rock
+        [6, 48],
+        [6, 49],
+        [6, 50],
+        [6, 51],
+        [6, 52],
+        [6, 53],
+        [6, 54],
+        [6, 55],
+        [6, 56],
+        [6, 57],
+        [6, 58],
+        [6, 59],
+        [6, 60],
+        [6, 61],
+        [6, 62],
+        [6, 63],
+        [6, 64],
+        [6, 65],
+        [6, 66],
+        [6, 67],
+        [6, 68],
+        [1, 52],
+        [1, 54],
+        [1, 61],
+        [1, 68],
+        # Lana - Pop
         [3, 69],
         [3, 70],
         [3, 71],
@@ -448,9 +482,8 @@ tableMusicaEstilo = [
         [3, 81],
         [3, 82],
         [3, 83],
-        # Daughter
+        # Daughter - Indie
         [2, 84],
-        [3, 84],
         [2, 85],
         [2, 86],
         [2, 87],
@@ -460,10 +493,9 @@ tableMusicaEstilo = [
         [2, 91],
         [2, 92],
         [2, 93],
-        # Lorde
+        # Lorde - Pop and Indie
         [3, 94],
         [3, 95],
-        [2, 95],
         [3, 96],
         [3, 97],
         [3, 98],
@@ -473,7 +505,9 @@ tableMusicaEstilo = [
         [3, 102],
         [3, 103],
         [3, 104],
-        # Eminem
+        [2, 95],
+        [2, 100],
+        # Eminem - Hip-Hop
         [5, 105],
         [5, 106],
         [5, 107],
@@ -494,7 +528,7 @@ tableMusicaEstilo = [
         [5, 122],
         [5, 123],
         [5, 124],
-        # Muse
+        # Muse - Alternative Rock and Hard Rock
         [1, 125],
         [1, 126],
         [1, 127],
@@ -507,15 +541,47 @@ tableMusicaEstilo = [
         [1, 134],
         [1, 135],
         [1, 136],
+        [7, 125],
+        [7, 126],
+        [7, 128],
+        [7, 129],
+        [7, 130],
+        [7, 131],
+        [7, 132],
+        [7, 133],
+        [7, 135],
+        # Green Day - Punk Rock and Alternative Rock
+        [8, 137],
+        [8, 138],
+        [8, 139],
+        [8, 140],
+        [8, 141],
+        [8, 142],
+        [8, 143],
+        [8, 144],
+        [8, 145],
+        [8, 146],
+        [8, 147],
+        [8, 148],
+        [8, 149],
+        [1, 139],
+        [1, 140],
+        [1, 141],
+        [1, 145],
+        [1, 147],
+        [1, 149],
         ]
 
 # idEstiloMusical, NomeEstilo -> FEITO
 tableEstiloMusical = [
-        [1, "'Rock'"],
+        [1, "'Alternative Rock'"],
         [2, "'Indie'"],
         [3, "'Pop'"],
         [4, "'Grunge'"],
-        [5, "'Hip Hop'"]
+        [5, "'Hip-Hop'"],
+        [6, "'Pop Rock'"],
+        [7, "'Hard Rock'"],
+        [8, "'Punk Rock'"]
         ]
 
 # Papel que o artista desempenha -> FEITO
@@ -563,6 +629,13 @@ tableDesempenha = [
         [52, 1],
         [52, 5],
         [53, 4],
+        # Green Day
+        [54, 1],
+        [54, 2],
+        [55, 1],
+        [55, 2],
+        [55, 5],
+        [56, 4],
         ]
 
 # Papeis que a banda possui
@@ -605,6 +678,11 @@ tablePossui = [
         [10, 3],
         [10, 4],
         [10, 5],
+        # Green Day
+        [11, 1],
+        [11, 2],
+        [11, 4],
+        [11, 5],
         ]
 
 # idArtista, idEntidadeMusical -> FEITO
@@ -642,6 +720,10 @@ tableMembro = [
         [51, 10],
         [52, 10],
         [53, 10],
+         # Green Day
+        [54, 11],
+        [55, 11],
+        [56, 11],
         ]
 
 
@@ -955,6 +1037,7 @@ tableFavoritoAlbum = [
         [2, 3],
         [2, 4],
         [3, 12],
+        [3, 13],
         [4, 1],
         [5, 3],
         [6, 1],
@@ -1004,6 +1087,13 @@ tableFavoritoMusica =  [
         [3, 125, "'2020-03-23'"],
         [3, 126, "'2020-03-23'"],
         [3, 134, "'2020-03-25'"],
+        [3, 137, "'04-04-2020'"],
+        [3, 138, "'04-04-2020'"],
+        [3, 141, "'04-04-2020'"],
+        [3, 143, "'04-04-2020'"],
+        [3, 145, "'04-04-2020'"],
+        [3, 148, "'04-04-2020'"],
+        [3, 149, "'04-04-2020'"],
         [4, 5, "'2020-03-26'"],
         [4, 6, "'2020-03-28'"],
         [5, 7, "'2020-03-28'"],
@@ -1168,6 +1258,11 @@ tablePertence = [
         [4, 125],
         [4, 126],
         [4, 134],
+        [4, 137],
+        [4, 138],
+        [4, 141],
+        [4, 143],
+        [4, 148],
         ]
 
 # idUtilizador, idUtilizadorSeguido
