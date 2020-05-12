@@ -21,3 +21,12 @@ Group By idUtilizador;
 Select *
 From FavoritoMusica natural join Utilizador natural join Musica;
 ```
+- Álbum com maior numero de músicas
+```sql
+SELECT idAlbum, nome, capa, anoLancamento, max(nr) AS nr_musicas FROM (SELECT idAlbum, count(*) AS nr FROM Musica GROUP BY idAlbum) NATURAL JOIN Album;
+```
+
+- Top 10 Músicas mais favoritadas - FALTA MOSTRAR DADOS DAS MUSICAS
+```sql
+SELECT idMusica, count(*) AS nr FROM FavoritoMusica GROUP BY idMusica ORDER BY nr DESC LIMIT 10;
+```
