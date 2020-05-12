@@ -1,4 +1,4 @@
-# Interrofações a implementar no Projeto (Tarefa G)
+# Interrogações a implementar no Projeto (Tarefa G)
 
 ### Hugo
 ### Samuel
@@ -11,7 +11,11 @@
 
 ### Paulinho
 
-- [ ] Ver Album com mais músicas (ou mais tempo)
+- [x] Ver Album com mais músicas (ou mais tempo)
+
+- [ ] listar Top10 de músicas mais favoritadas, ordenado
+  
+# Peguem nisto
 
 ### Hugo
 
