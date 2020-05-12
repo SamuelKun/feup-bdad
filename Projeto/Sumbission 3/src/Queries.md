@@ -1,4 +1,4 @@
-# Interrofações a implementar no Projeto (Tarefa G)
+# Interrogações a implementar no Projeto (Tarefa G)
 
 ### Hugo
 ### Samuel
@@ -11,15 +11,15 @@
 
 ### Paulinho
 
-- [ ] Ver Album com mais músicas (ou mais tempo)
+- [x] Ver Album com mais músicas (ou mais tempo)
+
+- [ ] listar Top10 de músicas mais favoritadas, ordenado
   
 # Peguem nisto
 
 - [ ] listar utilizador e álbum, desde que o utilizador tenha ouvido uma musica desse álbum
 
 - [ ] pares de utilizadores que tenham ouvido pelo menos 60 minutos de musicas em conjunto
-
-- [ ] listar Top10 de músicas mais favoritadas, ordenado
 
 - [ ] Ver os albuns favoritos pelo utilizador, em que o utilizador ouviu a totalidade do album
 
