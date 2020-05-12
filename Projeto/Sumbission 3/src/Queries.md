@@ -19,6 +19,8 @@
 
 - [ ] listar utilizador e álbum, desde que o utilizador tenha ouvido uma musica desse álbum
 
+- [x] Listar o Tempo Total de Música ouvida por cada utilizador (em segundos)
+
 # Peguem nisto
 
 - [ ] listar Top10 de músicas mais favoritadas, ordenado
