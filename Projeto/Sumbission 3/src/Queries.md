@@ -11,3 +11,13 @@
 - [ ] listar Top10 de músicas mais favoritadas, ordenado
 
 - [ ] Ver os albuns favoritos pelo utilizador, em que o utilizador ouviu a totalidade do album
+
+- [ ] Ver os albuns favoritos pelo utilizador, em que o utilizador ouviu a totalidade do album
+
+- [ ] Utilizadores que seguem EntidadesMusicais cujo têm todas as músicas ouviram
+
+- [ ] Utilizadores que já ouviram todas as musicas de playlists que colaboram
+
+- [ ] Álbuns que foram lançados no mesmo ano que o utilizador
+
+- [ ] Número de estilos musicais das músicas que o utilizador tem como favorita
