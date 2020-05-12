@@ -1,8 +1,19 @@
 # Interrofações a implementar no Projeto (Tarefa G)
 
+### Hugo
+### Samuel
+
 - [ ] Ver todas as músicas que um utilizador tem adicionado a favorito e ver qual é o artista mais conhecido
 
+- [ ] Utilizadores que já ouviram todas as musicas de playlists que colaboram
+
+- [ ] Álbuns que foram lançados no mesmo ano que o utilizador
+
+### Paulinho
+
 - [ ] Ver Album com mais músicas (ou mais tempo)
+  
+# Peguem nisto
 
 - [ ] listar utilizador e álbum, desde que o utilizador tenha ouvido uma musica desse álbum
 
@@ -16,8 +27,5 @@
 
 - [ ] Utilizadores que seguem EntidadesMusicais cujo têm todas as músicas ouviram
 
-- [ ] Utilizadores que já ouviram todas as musicas de playlists que colaboram
-
-- [ ] Álbuns que foram lançados no mesmo ano que o utilizador
-
 - [ ] Número de estilos musicais das músicas que o utilizador tem como favorita
+
