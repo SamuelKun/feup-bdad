@@ -64,7 +64,7 @@ CREATE TABLE Musica (
 DROP TABLE IF EXISTS Playlist;
 CREATE TABLE Playlist (
   idPlaylist                 INTEGER                 PRIMARY KEY,
-  idUtilizador               INTEGER                 REFERENCES Utilizador(idUtilizador) ON DELETE SET NULL ON UPDATE CASCADE,
+  criador                    INTEGER                 REFERENCES Utilizador(idUtilizador) ON DELETE SET NULL ON UPDATE CASCADE,
   nome                       VARCHAR(255)            NOT NULL,
   imagem                     VARCHAR(255),
   dataCriacao                VARCHAR(255)            NOT NULL,
@@ -120,6 +120,13 @@ CREATE TABLE Compoe (
   PRIMARY KEY(idEntidadeMusical, idAlbum)
 );
 
+DROP TABLE IF EXISTS Segue;
+CREATE TABLE Segue (
+  idUtilizador               INTEGER                 REFERENCES Utilizador(idUtilizador) ON DELETE SET NULL ON UPDATE CASCADE,
+  idEntidadeMusical          INTEGER                 REFERENCES EntidadeMusical(idEntidadeMusical) ON DELETE SET NULL ON UPDATE CASCADE,
+  PRIMARY KEY(idUtilizador, idEntidadeMusical)
+);
+
 DROP TABLE IF EXISTS FavoritoAlbum;
 CREATE TABLE FavoritoAlbum (
   idUtilizador               INTEGER                 REFERENCES Utilizador(idUtilizador) ON DELETE SET NULL ON UPDATE CASCADE,
@@ -131,7 +138,7 @@ DROP TABLE IF EXISTS FavoritoMusica;
 CREATE TABLE FavoritoMusica (
   idUtilizador               INTEGER                 REFERENCES Utilizador(idUtilizador) ON DELETE SET NULL ON UPDATE CASCADE,
   idMusica                   INTEGER                 REFERENCES Musica(idMusica) ON DELETE SET NULL ON UPDATE CASCADE,
-  data                       INTEGER                 NOT NULL,
+  data                       VARCHAR(255)            NOT NULL,
   PRIMARY KEY(idUtilizador, idMusica)
 );
 
@@ -170,8 +177,8 @@ CREATE TABLE Pertence (
   PRIMARY KEY(idMusica, idPlaylist)
 );
 
-DROP TABLE IF EXISTS Segue;
-CREATE TABLE Segue (
+DROP TABLE IF EXISTS Seguir;
+CREATE TABLE Seguir (
   idUtilizador               INTEGER                 REFERENCES Utilizador(idUtilizador) ON DELETE SET NULL ON UPDATE CASCADE,
   idUtilizadorSeguido        INTEGER                 REFERENCES Utilizador(idUtilizador) ON DELETE SET NULL ON UPDATE CASCADE,
   PRIMARY KEY(idUtilizador, idUtilizadorSeguido)

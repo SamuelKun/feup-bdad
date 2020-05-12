@@ -1028,7 +1028,17 @@ tableTempoOuvido = [
         [60, 24, 102],
         
         ]
-
+# idUtilizador, idEntidadeMusical
+tableSegue = [
+    [1, 1],
+    [1, 3],
+    [4, 5],
+    [4, 6],
+    [7, 1],
+    [9, 1],
+    [11, 1],
+    [14, 1],
+    ]
 
 # idUtilizador, idAlbum
 tableFavoritoAlbum = [
@@ -1266,7 +1276,7 @@ tablePertence = [
         ]
 
 # idUtilizador, idUtilizadorSeguido
-tableSegue = [
+tableSeguir = [
         [3, 1],
         [1, 3],
         [2, 1],
@@ -1319,6 +1329,7 @@ classes = {"Pessoa" : tablePessoa,
            "Possui" : tablePossui,
            "Membro" : tableMembro,
            "Compoe" : tableCompoe,
+           "Segue"  : tableSegue,
            "FavoritoAlbum" : tableFavoritoAlbum,
            "FavoritoMusica" : tableFavoritoMusica,
            "FavoritoPlaylist" : tableFavoritoPlaylist,
@@ -1326,7 +1337,7 @@ classes = {"Pessoa" : tablePessoa,
            "MusicaEstilo" : tableMusicaEstilo,
            "UtilizadorSessao" : tableUtilizadorSessao,
            "Pertence" : tablePertence,
-           "Segue" : tableSegue,
+           "Seguir" : tableSeguir,
            }
            
 
