@@ -13,7 +13,9 @@
 
 - [x] Ver Album com mais músicas (ou mais tempo)
 
-- [ ] listar Top10 de músicas mais favoritadas, ordenado
+- [x] listar Top10 de músicas mais favoritadas, ordenado
+
+- [x] Número de estilos musicais das músicas que o utilizador tem como favorita
   
 # Peguem nisto
 
@@ -27,10 +29,6 @@
 
 # Peguem nisto
 
-- [ ] listar Top10 de músicas mais favoritadas, ordenado
-
 - [ ] Ver os albuns favoritos pelo utilizador, em que o utilizador ouviu a totalidade do album
 
 - [ ] Utilizadores que seguem EntidadesMusicais cujo têm todas as músicas ouviram
-
-- [ ] Número de estilos musicais das músicas que o utilizador tem como favorita
