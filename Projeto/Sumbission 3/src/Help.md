@@ -30,7 +30,28 @@ From FavoritoMusica natural join Utilizador natural join Musica;
 ```sql
 Select
 ```
-
+### Hugo
+- [x] pares de utilizadores que tenham ouvido pelo menos 60 minutos de musicas em conjunto
+```sql
+Select username,idMusica,tempoTotal
+From (Select *,sum(duracao) as tempoTotal
+From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+group by idUtilizador,idMusica)
+Where (duracao > 60)
+ORDER by (idMusica);
+```
+- [x] listar utilizador e álbum, desde que o utilizador tenha ouvido uma musica desse álbum
+```sql
+Select username,nome, sum(duracao)
+From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido natural join album
+group by username, idAlbum;
+```
+- [x] Listar o Tempo Total de Música ouvida por cada utilizador (em segundos)
+```sql
+Select username, sum(duracao) as tempoTotal
+From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+Group By idUtilizador;
+```
 ### Queries das funções do Esquema Relacional que estabelecem uma relação
 
 - **TempoOuvido (idMusica->Musica, idSessao->Sessao, duracao)**
@@ -137,4 +158,44 @@ SELECT idMusica, idAlbum, nome, duracao, count(*) AS NrFavoritada FROM FavoritoM
 - Número de Estilos Musicais favoritados pelo Utilizador
 ```sql
 SELECT idUtilizador, email, username, password, count(Distinct idEstiloMusical) AS NrEstilosFavoritados FROM FavoritoMusica NATURAL JOIN Utilizador NATURAL JOIN MusicaEstilo GROUP BY idUtilizador;
+```
+
+```sql
+SELECT idEntidadeMusical,idEstiloMusical, nome, count(nome) as occurences
+FROM Compoe NATURAL JOIN
+(
+SELECT idEstiloMusical, idMusica, nome, idAlbum FROM MusicaEstilo NATURAL JOIN (SELECT * FROM EstiloMusical JOIN Musica)
+)
+Group by idEntidadeMusical,idEstiloMusical;
+
+```
+
+```sql
+Select *
+From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+Where (duracao > 60)
+ORDER by (idMusica)
+
+
+Select *,sum(duracao)
+From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+group by idUtilizador,idMusica
+
+
+Select username,idMusica,tempoTotal
+From (Select *,sum(duracao) as tempoTotal
+From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+group by idUtilizador,idMusica)
+Where (duracao > 60)
+ORDER by (idMusica);
+
+
+Select *
+From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido natural join album
+
+
+Select username,nome, sum(duracao)
+From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido natural join album
+group by username, idAlbum
+
 ```

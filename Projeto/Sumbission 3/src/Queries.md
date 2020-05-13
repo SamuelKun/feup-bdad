@@ -1,6 +1,5 @@
 # Interrogações a implementar no Projeto (Tarefa G)
 
-### Hugo
 ### Samuel
 
 - [ ] Ver todas as músicas que um utilizador tem adicionado a favorito e ver qual é o artista mais conhecido
@@ -16,14 +15,14 @@
 - [x] listar Top10 de músicas mais favoritadas, ordenado
 
 - [x] Número de estilos musicais das músicas que o utilizador tem como favorita
-  
+
 # Peguem nisto
 
 ### Hugo
 
-- [ ] pares de utilizadores que tenham ouvido pelo menos 60 minutos de musicas em conjunto
+- [x] pares de utilizadores que tenham ouvido pelo menos 60 minutos de musicas em conjunto
 
-- [ ] listar utilizador e álbum, desde que o utilizador tenha ouvido uma musica desse álbum
+- [x] listar utilizador e álbum, desde que o utilizador tenha ouvido uma musica desse álbum
 
 - [x] Listar o Tempo Total de Música ouvida por cada utilizador (em segundos)
 
