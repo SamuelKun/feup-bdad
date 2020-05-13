@@ -82,7 +82,12 @@ From (Seguir s1 natural join utilizador u1) natural join (Seguir s2 natural join
 SELECT idAlbum, nome, capa, anoLancamento, max(nr) AS nr_musicas FROM (SELECT idAlbum, count(*) AS nr FROM Musica GROUP BY idAlbum) NATURAL JOIN Album;
 ```
 
-- Top 10 Músicas mais favoritadas - FALTA MOSTRAR DADOS DAS MUSICAS
+- Top 10 Músicas mais favoritadas
 ```sql
-SELECT idMusica, count(*) AS nr FROM FavoritoMusica GROUP BY idMusica ORDER BY nr DESC LIMIT 10;
+SELECT idMusica, idAlbum, nome, duracao, count(*) AS NrFavoritada FROM FavoritoMusica NATURAL JOIN Musica GROUP BY idMusica ORDER BY NrFavoritada DESC LIMIT 10;
+```
+
+- Número de Estilos Musicais favoritados pelo Utilizador
+```sql
+SELECT idUtilizador, email, username, password, count(Distinct idEstiloMusical) AS NrEstilosFavoritados FROM FavoritoMusica NATURAL JOIN Utilizador NATURAL JOIN MusicaEstilo GROUP BY idUtilizador;
 ```
