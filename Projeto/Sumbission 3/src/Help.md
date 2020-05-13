@@ -138,3 +138,16 @@ SELECT idMusica, idAlbum, nome, duracao, count(*) AS NrFavoritada FROM FavoritoM
 ```sql
 SELECT idUtilizador, email, username, password, count(Distinct idEstiloMusical) AS NrEstilosFavoritados FROM FavoritoMusica NATURAL JOIN Utilizador NATURAL JOIN MusicaEstilo GROUP BY idUtilizador;
 ```
+
+- Estilo Musical mais comum de cada Entidade Musical - FALTA GARANTIR QUE O NOME QUE APARECE É O COM MAIS OCURRÊNCIAS
+```sql
+SELECT nomeArtistico As NomeArtistico, nome AS EstiloMusical FROM
+EntidadeMusical NATURAL JOIN 
+(SELECT idEntidadeMusical, nome, count(nome) as occurences
+FROM Compoe NATURAL JOIN
+(
+SELECT idEstiloMusical, idMusica, nome, idAlbum FROM MusicaEstilo NATURAL JOIN (SELECT * FROM EstiloMusical JOIN Musica)
+)
+GROUP BY idEntidadeMusical, idEstiloMusical)
+GROUP BY idEntidadeMusical;
+```
