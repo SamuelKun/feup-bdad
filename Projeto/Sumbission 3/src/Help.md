@@ -33,6 +33,13 @@ Select
 
 ### Queries das funções do Esquema Relacional que estabelecem uma relação
 
+- **TempoOuvido (idMusica->Musica, idSessao->Sessao, duracao)**
+- Tempo ouvido de cada Musica numa sesssão
+```sql
+Select *
+From TempoOuvido natural join (Musica join Sessao);
+```
+
 - **Desempenha (idArtista->Artista, idPapel->Papel)**
 - Papel Desempenhado por um artista  
 ```sql
@@ -88,10 +95,11 @@ Select username, nome as playlist
 From Colabora natural join utilizador natural join playlist;
 ```
 - **MusicaEstilo (idEstiloMusical->EstiloMusical, idMusica->Musica)**
-- Estilos Musicais de cada Música (FALTA ADICIONAR DADOS)
+- Estilos Musicais de cada Música (FALTA MELHORAR O SELECT N DÁ PARA DAR RENAME)
 ```sql
 Select *
-From MusicaEstilo natural join EstiloMusical natural join Musica;
+From MusicaEstilo natural join ( Select *
+from EstiloMusical join musica);
 ```
 - **UtilizadorSessao (idUtilizador->Utilizador, idSessao->Sessao)**
 - Sessões de cada utilizador
@@ -105,13 +113,17 @@ From UtilizadorSessao natural join utilizador natural join Sessao;
 Select PLaylist.nome as playlist, Musica.nome as musica
 From Pertence natural join (Musica Join Playlist);
 ```
-// NÃO CONSIGO FAZER
+// NÃO CONSIGO FAZER (não quero só os Distinct)
 - **Seguir (idUtilizador->Utilizador, idUtilizadorSeguido->Utilizador)**
 - Seguidores de um utilizador
 ```sql
-Select *
-From (Seguir s1 natural join utilizador u1) natural join (Seguir s2 natural join utilizador u2);
+Select Distinct idUtilizador,idUtilizadorSeguido
+From  Seguir natural join  (Select * FROM
+  utilizador u1 join utilizador u2);
 ```
+
+# Outras Cenas
+
 - Álbum com maior numero de músicas
 ```sql
 SELECT idAlbum, nome, capa, anoLancamento, max(nr) AS nr_musicas FROM (SELECT idAlbum, count(*) AS nr FROM Musica GROUP BY idAlbum) NATURAL JOIN Album;
