@@ -16,6 +16,8 @@
 
 - [x] Número de estilos musicais das músicas que o utilizador tem como favorita
 
+- [ ] Deduzir EstiloMusical de cada Entidade Musical
+  
 # Peguem nisto
 
 ### Hugo
