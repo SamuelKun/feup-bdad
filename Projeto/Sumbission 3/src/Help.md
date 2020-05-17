@@ -269,7 +269,8 @@ group by username, idAlbum;
 - [ ] Queries
   - [ ] Queries existentes contam como várias ou apenas uma?
   - [ ] Estamos a usar operadores suficientes?
-
+  - [ ] Os gatilhos devem ser inicializados em **run.sql**?
+  - [ ] As verificações dos gatilhos podem dar `.read run.sql` para garantir que os dados não foram alterados de uma forma inadequada?
 
 - [ ] Triggers
   - [ ] Os triggers que temos estão corretos?
