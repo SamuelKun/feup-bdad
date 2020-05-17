@@ -103,6 +103,32 @@ Begin
 End;
 ```
 
+- [x] Quando se apaga uma PLaylist, é necessário apagar todos os tuplos em Pertence que utilizassem essa playlist
+```sql
+Drop trigger T3;
+Create Trigger T3
+after delete on PLaylist
+when exists (select * from Pertence where idPlaylist = old.idPlaylist)
+Begin
+  Delete from Pertence
+  Where idPlaylist = old.idPlaylist;
+End;
+```
+
+- [x] Verificar se um album foi criado depois da banda ser fundada
+```sql
+Drop trigger T3;
+Create Trigger T3
+after insert on Compoe
+when exists (
+  Select *
+  From Compoe natural join Album natural join entidadeMusical
+  where anoLancamento < DataFundacao)
+Begin
+  Select raise(abort,"Can't be the creator of  an album if the band was not formed on that date");
+End;
+```
+
 
 Select username,nomeArtistico
 From Segue natural join utilizador natural join entidadeMusical;
