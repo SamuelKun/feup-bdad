@@ -52,13 +52,68 @@ Select username, sum(duracao) as tempoTotal
 From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
 Group By idUtilizador;
 ```
+- [x] Todas as músicas de uma banda
+```sql
+Select *
+From Musica join (Compoe  natural join entidadeMusical) using (idAlbum)
+Order by idMusica;
+```
+
+- [x] Todas as musicas favoritadas por um utilizador
+
+### Triggers
+
+- [x] No TempoOuvido, se adicionarmos um tempo ouvido a uma musica de uma sessão que já tenho sido ouvida, incrementa o tempo em vez de adicionar um novo tuplo
+```sql
+Drop trigger T1;
+Create Trigger T1
+before insert on TempoOuvido
+when exists (select * from TempoOuvido where (idSessao = new.idSessao and idMusica = new.idMusica))
+Begin
+  Update TempoOuvido
+  set duracao = duracao + new.duracao
+  where new.idSessao = idSessao and new.idMusica = idMusica;
+  select raise(ignore);
+End;
+```
+
+- [x] Na criação de uma EntidadeMusical, não permitir a adição de uma nova com o mesmo nomeArtistico;
+```sql
+Drop trigger T2;
+Create Trigger T2
+before insert on EntidadeMusical
+when exists (select * from EntidadeMusical where nomeArtistico = new.nomeArtistico)
+Begin
+  select raise(ignore);
+End;
+```
+
+- [x] Não deixar adicionar artista favorito se não tiver nenhuma música dele nas músicas favoritas
+```sql
+Drop trigger T3;
+Create Trigger T3
+before insert on Segue
+when not exists (
+  Select *
+  From FavoritoMusica natural join Compoe natural join musica
+  Where idUtilizador =  new.idutilizador and  idEntidadeMusical = new.idEntidadeMusical
+)
+Begin
+  select raise(ignore);
+End;
+```
+
+
+Select username,nomeArtistico
+From Segue natural join utilizador natural join entidadeMusical;
+
 ### Queries das funções do Esquema Relacional que estabelecem uma relação
 
 - **TempoOuvido (idMusica->Musica, idSessao->Sessao, duracao)**
 - Tempo ouvido de cada Musica numa sesssão
 ```sql
-Select *
-From TempoOuvido natural join (Musica join Sessao);
+Select TempoOuvido.idSessao,musica.nome, TempoOuvido.duracao
+From TempoOuvido join  (Musica natural join Sessao) using(idSessao,idMusica);
 ```
 
 - **Desempenha (idArtista->Artista, idPapel->Papel)**
@@ -141,6 +196,10 @@ From Pertence natural join (Musica Join Playlist);
 Select Distinct idUtilizador,idUtilizadorSeguido
 From  Seguir natural join  (Select * FROM
   utilizador u1 join utilizador u2);
+
+  Select *
+  From Seguir join  (Utilizador u1 join Utilizador u2)
+  where (u1.idUtilizador < u2.idUtilizador and  u1.idUtilizadorSeguido < u2.idUtilizadorSeguido);
 ```
 
 # Outras Cenas
