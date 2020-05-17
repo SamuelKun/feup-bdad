@@ -67,7 +67,7 @@ Order by idMusica;
 ```sql
 Drop trigger T1;
 Create Trigger T1
-before insert on TempoOuvido
+before insert on TempoOuvido  
 when exists (select * from TempoOuvido where (idSessao = new.idSessao and idMusica = new.idMusica))
 Begin
   Update TempoOuvido
@@ -77,21 +77,10 @@ Begin
 End;
 ```
 
-- [x] Na criação de uma EntidadeMusical, não permitir a adição de uma nova com o mesmo nomeArtistico;
+- [x] Não deixar adicionar artista favorito se não tiver nenhuma música dele nas músicas favoritas
 ```sql
 Drop trigger T2;
 Create Trigger T2
-before insert on EntidadeMusical
-when exists (select * from EntidadeMusical where nomeArtistico = new.nomeArtistico)
-Begin
-  select raise(ignore);
-End;
-```
-
-- [x] Não deixar adicionar artista favorito se não tiver nenhuma música dele nas músicas favoritas
-```sql
-Drop trigger T3;
-Create Trigger T3
 before insert on Segue
 when not exists (
   Select *
@@ -99,7 +88,18 @@ when not exists (
   Where idUtilizador =  new.idutilizador and  idEntidadeMusical = new.idEntidadeMusical
 )
 Begin
-  select raise(ignore);
+  select raise(abort,"Can't Follow a band if you don't like any of their songs");
+End;
+```
+
+- [x] Na criação de uma EntidadeMusical, não permitir a adição de uma nova com o mesmo nomeArtistico;
+```sql
+Drop trigger T3;
+Create Trigger T3
+before insert on EntidadeMusical
+when exists (select * from EntidadeMusical where nomeArtistico = new.nomeArtistico)
+Begin
+  select raise(ignore)
 End;
 ```
 
@@ -226,7 +226,7 @@ SELECT idEntidadeMusical,idEstiloMusical, nome, count(nome) as occurences
 ```sql
 SELECT nomeArtistico As NomeArtistico, nome AS EstiloMusical FROM
 EntidadeMusical NATURAL JOIN
-(SELECT idEntidadeMusical, nome, count(nome) as occurences
+SELECT idEntidadeMusical, nome, count(nome) as occurences
 FROM Compoe NATURAL JOIN
 (
 SELECT idEstiloMusical, idMusica, nome, idAlbum FROM MusicaEstilo NATURAL JOIN (SELECT * FROM EstiloMusical JOIN Musica)
@@ -261,4 +261,17 @@ From UtilizadorSessao natural join Utilizador natural join Sessao natural join T
 
 Select username,nome, sum(duracao)
 From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido natural join album
-group by username, idAlbum
+group by username, idAlbum;
+
+```
+
+# Duvidas para a professora
+- [ ] Queries
+  - [ ] Queries existentes contam como várias ou apenas uma?
+  - [ ] Estamos a usar operadores suficientes?
+  - [ ] Os gatilhos devem ser inicializados em **run.sql**?
+  - [ ] As verificações dos gatilhos podem dar `.read run.sql` para garantir que os dados não foram alterados de uma forma inadequada?
+
+- [ ] Triggers
+  - [ ] Os triggers que temos estão corretos?
+  - [ ] É preciso usar select raise(rollback) ou select raise(abort) chega?
