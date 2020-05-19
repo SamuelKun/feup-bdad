@@ -24,20 +24,20 @@ From FavoritoMusica natural join Utilizador natural join Musica;
 
 - Desempenha
 ```sql
-
+    asdasd
 ```
 - Tempo ouvido de cada musica
 ```sql
-Select
+asdsa
 ```
 ### Hugo
-- [x] pares de utilizadores que tenham ouvido pelo menos 60 minutos de musicas em conjunto
+- [x] pares de utilizadores que tenham ouvido pelo menos 5 minutos de musicas em conjunto
 ```sql
 Select username,idMusica,tempoTotal
 From (Select *,sum(duracao) as tempoTotal
 From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
-group by idUtilizador,idMusica)
-Where (duracao > 60)
+group by idUtilizador,idMusica
+having tempoTotal > 300)
 ORDER by (idMusica);
 ```
 - [x] listar utilizador e álbum, desde que o utilizador tenha ouvido uma musica desse álbum
@@ -54,14 +54,40 @@ Group By idUtilizador;
 ```
 - [x] Todas as músicas de uma banda
 ```sql
-Select *
+Select nomeArtistico, nome
 From Musica join (Compoe  natural join entidadeMusical) using (idAlbum)
 Order by idMusica;
 ```
-
-- [x] Todas as musicas favoritadas por um utilizador
+- [ ] Utilizadores que se seuguem reciprocamente
+```sql
+Select idUtilizador,idUtilizadorSeguido,username1,username2
+From (
+    Select s1.idUtilizador, s1.idUtilizadorSeguido
+    From seguir s1, seguir s2
+    Where s1.idUtilizador = s2.idUtilizadorSeguido and s1.idUtilizadorSeguido = s2.idUtilizador
+) natural join (
+    Select u1.idUtilizador as name1, u2.idUtilizador as name2, u1.username as username1,u2.username as username2
+    From utilizador u1 join utilizador u2
+)
+Where name1 = idutilizador and name2 = idUtilizadorSeguido;
+```
+- [x] Tentativa numero 2 utiliando exists
+```sql
+Select idUtilizador,idUtilizadorSeguido,username1,username2
+From (
+    Select s1.idUtilizador, s1.idUtilizadorSeguido
+    From seguir s1
+) natural join (
+    Select u1.idUtilizador as name1, u2.idUtilizador as name2, u1.username as username1,u2.username as username2
+    From utilizador u1 join utilizador u2
+)
+Where name1 = idutilizador and name2 = idUtilizadorSeguido and exists(
+    select * from seguir s2 where name1 = s2.idUtilizadorSeguido and name2 = s2.idUtilizador
+);
+```
 
 ### Triggers
+
 
 - [x] No TempoOuvido, se adicionarmos um tempo ouvido a uma musica de uma sessão que já tenho sido ouvida, incrementa o tempo em vez de adicionar um novo tuplo
 ```sql
@@ -215,17 +241,17 @@ From UtilizadorSessao natural join utilizador natural join Sessao;
 Select PLaylist.nome as playlist, Musica.nome as musica
 From Pertence natural join (Musica Join Playlist);
 ```
-// NÃO CONSIGO FAZER (não quero só os Distinct)
+
 - **Seguir (idUtilizador->Utilizador, idUtilizadorSeguido->Utilizador)**
 - Seguidores de um utilizador
 ```sql
-Select Distinct idUtilizador,idUtilizadorSeguido
-From  Seguir natural join  (Select * FROM
-  utilizador u1 join utilizador u2);
+Select *
+From Seguir natural join (
+    Select u1.idUtilizador as name1, u2.idUtilizador as name2, u1.username as username1,u2.username as username2
+    From utilizador u1 join utilizador u2
+)
+Where name1 = idutilizador and name2 = idUtilizadorSeguido;
 
-  Select *
-  From Seguir join  (Utilizador u1 join Utilizador u2)
-  where (u1.idUtilizador < u2.idUtilizador and  u1.idUtilizadorSeguido < u2.idUtilizadorSeguido);
 ```
 
 # Outras Cenas
@@ -237,12 +263,12 @@ SELECT idAlbum, nome, capa, anoLancamento, max(nr) AS nr_musicas FROM (SELECT id
 
 - Top 10 Músicas mais favoritadas
 ```sql
-SELECT idMusica, idAlbum, nome, duracao, count(*) AS NrFavoritada FROM FavoritoMusica NATURAL JOIN Musica GROUP BY idMusica ORDER BY NrFavoritada DESC LIMIT 10;
+SELECT  nome, count(*) AS NrFavoritada FROM FavoritoMusica NATURAL JOIN Musica GROUP BY idMusica ORDER BY NrFavoritada DESC LIMIT 10;
 ```
 
 - Número de Estilos Musicais favoritados pelo Utilizador
 ```sql
-SELECT idUtilizador, email, username, password, count(Distinct idEstiloMusical) AS NrEstilosFavoritados FROM FavoritoMusica NATURAL JOIN Utilizador NATURAL JOIN MusicaEstilo GROUP BY idUtilizador;
+SELECT email, username,count(Distinct idEstiloMusical) AS NrEstilosFavoritados FROM FavoritoMusica NATURAL JOIN Utilizador NATURAL JOIN MusicaEstilo GROUP BY idUtilizador;
 ```
 
 ```sql
@@ -289,6 +315,18 @@ Select username,nome, sum(duracao)
 From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido natural join album
 group by username, idAlbum;
 
+```
+- Estilo Musical predominante em cada EntidadeMusical
+```sql
+SELECT nomeArtistico As NomeArtistico, occurences, nome AS EstiloMusical FROM
+EntidadeMusical NATURAL JOIN
+(SELECT idEntidadeMusical, nome, count(nome) as occurences
+FROM Compoe NATURAL JOIN
+(
+SELECT idEstiloMusical, idMusica, nome, idAlbum FROM MusicaEstilo NATURAL JOIN (SELECT * FROM EstiloMusical JOIN Musica)
+)
+GROUP BY idEntidadeMusical, idEstiloMusical)
+GROUP BY idEntidadeMusical;
 ```
 
 # Duvidas para a professora
