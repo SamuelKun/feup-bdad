@@ -58,7 +58,7 @@ Begin
 End;
 ```
 
-- [x] Quando se apaga uma PLaylist, é necessário apagar todos os tuplos em Pertence que utilizassem essa playlist
+- [x] Quando se apaga uma Playlist, é necessário apagar todos os tuplos em Pertence que utilizassem essa playlist
 ```sql
 Drop trigger T3;
 Create Trigger T3
@@ -153,3 +153,16 @@ SELECT idEstiloMusical, idMusica, nome, idAlbum FROM MusicaEstilo NATURAL JOIN (
 GROUP BY idEntidadeMusical, idEstiloMusical)
 GROUP BY idEntidadeMusical;
 ```
+
+# Duvidas para a professora
+- [ ] Queries
+  - [ ] Queries existentes contam como várias ou apenas uma?
+  - [ ] Estamos a usar operadores suficientes?
+
+- [ ] Triggers
+  - [ ] Os triggers que temos estão corretos?
+  - [ ] É preciso usar select raise(rollback) ou select raise(abort) chega?
+  - [ ] Os gatilhos devem ser inicializados em **run.sql**?
+  - [ ] As verificações dos gatilhos podem dar `.read run.sql` para garantir que os dados não foram alterados de uma forma inadequada?
+
+ - Listar o utilizador e os albuns que já ouviram na totalidade.
