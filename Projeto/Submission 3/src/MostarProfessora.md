@@ -81,7 +81,50 @@ From UtilizadorSessao natural join Utilizador natural join Sessao natural join T
 group by idUtilizador,idMusica)
 Where (duracao > 300)
 ORDER by (idMusica);
+//
+Select idUtilizador,idMusica
+From (Select *,sum(duracao) as tempoTotal
+From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+group by idUtilizador,idMusica)
+Where (duracao > 300)
+ORDER by (idMusica);
+//
 ```
+```sql
+Select *
+From ( Select idMusica,idSessao, u1.idUtilizador as id1, u2.idUtilizador as id2, u1.username as nome1, u2.username as nome2, sum(duracao)
+From UtilizadorSessao natural join Utilizador u1 join Utilizador u2 natural join Sessao natural join TempoOuvido
+where nome1 < nome2
+group by id1,id2,idMusica )
+ORDER by (idMusica);
+```
+
+```sql
+select u1.idUtilizador as id1, u2.idUtilizador as id2, u1.username as nome1, u2.username as nome2
+From utilizador u1 join utilizador u2
+Where id1 < id2
+Order by id1;
+```
+
+```sql
+
+Select idUtilizador,idMusica
+From (Select *,sum(duracao) as tempoTotal
+From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+group by idUtilizador,idMusica)
+Where (duracao > 300);
+//
+select u1.idUtilizador as id1, u2.idUtilizador as id2
+From utilizador u1 join utilizador u2
+Where id1 < id2 and id1 in (Select idUtilizador,idMusica
+From (Select *,sum(duracao) as tempoTotal
+From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+group by idUtilizador,idMusica)
+Where (duracao > 300););
+
+```
+
+
 - MESMA QUERY USANDO HAVING
 ```sql
 Select username,idMusica,tempoTotal
@@ -165,4 +208,6 @@ GROUP BY idEntidadeMusical;
   - [ ] Os gatilhos devem ser inicializados em **run.sql**?
   - [ ] As verificações dos gatilhos podem dar `.read run.sql` para garantir que os dados não foram alterados de uma forma inadequada?
 
+
  - Listar o utilizador e os albuns que já ouviram na totalidade.
+ -
