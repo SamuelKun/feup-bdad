@@ -75,7 +75,7 @@ End;
 ### Hugo
 - [x] pares de utilizadores que tenham ouvido pelo menos 5 minutos de musicas em conjunto
 ```sql
-Select username,idMusica,tempoTotal
+Select idUtilizador,idMusica,tempoTotal
 From (Select *,sum(duracao) as tempoTotal
 From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
 group by idUtilizador,idMusica)
@@ -120,7 +120,25 @@ Where id1 < id2 and id1 in (Select idUtilizador,idMusica
 From (Select *,sum(duracao) as tempoTotal
 From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
 group by idUtilizador,idMusica)
-Where (duracao > 300););
+Where (duracao > 300));
+//
+//
+Select idmusica,id1,id2
+From(
+  Select idUtilizador as id1,idMusica
+  From (Select *,sum(duracao) as tempoTotal
+  From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+  group by idUtilizador,idMusica)
+  Where (duracao > 300))
+    join 
+  (Select idUtilizador as id2,idMusica
+  From (Select *,sum(duracao) as tempoTotal
+  From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+  group by idUtilizador,idMusica)
+  Where (duracao > 300)) using (idMusica)
+where id1 < id2
+order by idMusica;
+ 
 
 ```
 
