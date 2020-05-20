@@ -230,5 +230,19 @@ GROUP BY idEntidadeMusical;
   - [ ] As verificações dos gatilhos podem dar `.read run.sql` para garantir que os dados não foram alterados de uma forma inadequada?
 
 
- - Listar o utilizador e os albuns que já ouviram na totalidade.
- -
+ - [x] Listar o utilizador e os albuns que já ouviram na totalidade.
+```sql
+Select idUtilizador,idEntidadeMusical
+From
+(
+  Select idEntidadeMusical, count(idAlbum) as nrOuvidos
+  From Compoe natural join EntidadeMusical natural join album
+  group by idEntidadeMusical
+)
+natural join
+(
+Select idUtilizador,idEntidadeMusical,count(idAlbum) as nrOuvidos
+From FavoritoAlbum natural join album natural join utilizador natural join Compoe
+group by idUtilizador,idEntidadeMusical)
+Order By idUtilizador
+```
