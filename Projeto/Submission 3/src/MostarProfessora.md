@@ -130,7 +130,7 @@ From(
   From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
   group by idUtilizador,idMusica)
   Where (duracao > 300))
-    join 
+    join
   (Select idUtilizador as id2,idMusica
   From (Select *,sum(duracao) as tempoTotal
   From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
@@ -138,7 +138,7 @@ From(
   Where (duracao > 300)) using (idMusica)
 where id1 < id2
 order by idMusica;
- 
+
 
 ```
 
@@ -152,7 +152,7 @@ group by idUtilizador,idMusica
 having tempoTotal > 300)
 ORDER by (idMusica);
 ```
-- [x] listar utilizador e álbum, desde que o utilizador tenha ouvido uma musica desse álbum
+- [x] listar utilizador, álbum e tempoOuvido do Album, desde que o utilizador tenha ouvido uma musica desse álbum
 ```sql
 Select username,nome, sum(duracao)
 From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido natural join album
@@ -166,12 +166,12 @@ Group By idUtilizador;
 ```
 - [x] Todas as músicas de uma banda
 ```sql
-Select nomeArtistico, nome
+Select nomeArtistico as EntidadeMusical, nome as Musica
 From Musica join (Compoe  natural join entidadeMusical) using (idAlbum)
 Order by idMusica;
 ```
 
-- [x] Seguidores recíprocos
+- [x] Seguidores recíprocos (int5)
 ```sql
 Select idUtilizador,idUtilizadorSeguido,username1,username2
 From (
@@ -189,12 +189,15 @@ Where name1 = idutilizador and name2 = idUtilizadorSeguido;
 
 - Álbum com maior numero de músicas
 ```sql
-SELECT idAlbum, nome, capa, anoLancamento, max(nr) AS nr_musicas FROM (SELECT idAlbum, count(*) AS nr FROM Musica GROUP BY idAlbum) NATURAL JOIN Album;
+SELECT  nome as Album, capa, anoLancamento, max(nr) AS nr_musicas FROM (SELECT idAlbum, count(*) AS nr FROM Musica GROUP BY idAlbum) NATURAL JOIN Album;
+
+SELECT  nomeArtistico as EntidadeMusical,nome as Album,anoLancamento, max(nr) AS nr_musicas
+FROM (SELECT idAlbum, count(*) AS nr FROM Musica GROUP BY idAlbum) NATURAL JOIN Album natural join Compoe natural join entidadeMusical;
 ```
 
 - Top 10 Músicas mais favoritadas
 ```sql
-SELECT  nome, count(*) AS NrFavoritada FROM FavoritoMusica NATURAL JOIN Musica GROUP BY idMusica ORDER BY NrFavoritada DESC LIMIT 10;
+SELECT  nome as Musica, count(*) AS nrFavoritada FROM FavoritoMusica NATURAL JOIN Musica GROUP BY idMusica ORDER BY NrFavoritada DESC LIMIT 10;
 ```
 
 - Número de Estilos Musicais favoritados pelo Utilizador
