@@ -58,7 +58,7 @@ Select nomeArtistico, nome
 From Musica join (Compoe  natural join entidadeMusical) using (idAlbum)
 Order by idMusica;
 ```
-- [ ] Utilizadores que se seuguem reciprocamente
+- [x] Utilizadores que se seuguem reciprocamente
 ```sql
 Select idUtilizador,idUtilizadorSeguido,username1,username2
 From (
@@ -71,7 +71,7 @@ From (
 )
 Where name1 = idutilizador and name2 = idUtilizadorSeguido;
 ```
-- [x] Tentativa numero 2 utiliando exists
+- [x] Tentativa numero 2 utilizando exists
 ```sql
 Select idUtilizador,idUtilizadorSeguido,username1,username2
 From (
@@ -339,3 +339,37 @@ GROUP BY idEntidadeMusical;
 - [ ] Triggers
   - [ ] Os triggers que temos estão corretos?
   - [ ] É preciso usar select raise(rollback) ou select raise(abort) chega?
+
+
+
+   - [ ] Listar o utilizador e os albuns que já ouviram na totalidade.
+
+   ```sql
+   Select * 
+   from musica join album using (idAlbum)
+   Select *
+   From (Select *, sum(tempoOuvido.duracao)
+   From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido join musica using(idMusica))
+   group by (idUtilizador,idMusica)
+
+
+   Select *, sum(tempoOuvido.duracao)
+   From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido join musica using(idMusica)
+   group by (idUtilizador,idMusica)
+
+
+   Select idUtilizador,idMusica,idAlbum, sum(duracao)
+  From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido natural join album
+  group by username, idAlbum
+  order by idUtilizador
+  
+  Select *, sum(duracao) as TempoTotal
+  From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+  Group By idUtilizador;
+
+  Select *,sum(duracao) as tempoTotal
+  From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+  group by idUtilizador,idMusica
+  ORDER by (idUtilizador)
+    
+   ```
