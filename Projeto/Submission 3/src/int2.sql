@@ -2,6 +2,32 @@
 .headers	on
 .nullvalue	NULL
 
-SELECT email, username,count(Distinct idEstiloMusical) AS nrEstilosFavoritados
-FROM FavoritoMusica NATURAL JOIN Utilizador NATURAL JOIN MusicaEstilo
-GROUP BY idUtilizador;
+Select idUtilizador,idEntidadeMusical
+From
+(
+  Select idEntidadeMusical, count(idAlbum) as nrOuvidos
+  From Compoe natural join EntidadeMusical natural join album
+  group by idEntidadeMusical
+)
+natural join
+(
+Select idUtilizador,idEntidadeMusical,count(idAlbum) as nrOuvidos
+From FavoritoAlbum natural join album natural join utilizador natural join Compoe
+group by idUtilizador,idEntidadeMusical)
+Order By idUtilizador
+
+//Formatado
+
+Select username,eMusical
+From
+(
+  Select idEntidadeMusical,nomeArtistico as eMusical, count(idAlbum) as nrOuvidos
+  From Compoe natural join EntidadeMusical natural join album
+  group by idEntidadeMusical
+)
+natural join
+(
+Select idUtilizador,idEntidadeMusical,username,count(idAlbum) as nrOuvidos
+From FavoritoAlbum natural join album natural join utilizador natural join Compoe
+group by idUtilizador,idEntidadeMusical)
+Order By idUtilizador

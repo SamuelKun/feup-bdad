@@ -2,20 +2,11 @@
 .headers	on
 .nullvalue	NULL
 
-SELECT nomeArtistico As entidadeMusical, nome AS estiloMusical, max(occurences) as nrMusicas
-FROM EntidadeMusical NATURAL JOIN
+SELECT *
+FROM
 (
-  SELECT idEntidadeMusical, nome, count(nome) as occurences
-  FROM Compoe
-  NATURAL JOIN
-  (
-      SELECT idEstiloMusical, idMusica, nome, idAlbum FROM MusicaEstilo
-      NATURAL JOIN
-      (
-        SELECT * 
-        FROM EstiloMusical JOIN Musica
-      )
-  )
-  GROUP BY idEntidadeMusical, idEstiloMusical
+  SELECT idArtista AS idPessoa, idPapel FROM Desempenha NATURAL JOIN Artista WHERE idPapel = 1
 )
-GROUP BY idEntidadeMusical;
+NATURAL JOIN Pessoa
+WHERE dataNascimento >= "1970-01-01" AND dataNascimento <= "1980-01-01"
+ORDER BY dataNascimento;
