@@ -9,13 +9,19 @@ FROM EntidadeMusical NATURAL JOIN
   FROM Compoe
   NATURAL JOIN
   (
-      SELECT idEstiloMusical, idMusica, nome, idAlbum FROM MusicaEstilo
-      NATURAL JOIN
-      (
-        SELECT * 
-        FROM EstiloMusical JOIN Musica
-      )
+    SELECT idEstiloMusical, idMusica, nome, idAlbum
+    FROM MusicaEstilo
+    NATURAL JOIN
+    (
+      SELECT *
+      FROM EstiloMusical JOIN Musica
+    )
   )
   GROUP BY idEntidadeMusical, idEstiloMusical
 )
 GROUP BY idEntidadeMusical;
+
+
+
+SELECT idEstiloMusical, idMusica, nome, idAlbum
+FROM MusicaEstilo JOIN (EstiloMusical JOIN Musica) using (idEstiloMusical)

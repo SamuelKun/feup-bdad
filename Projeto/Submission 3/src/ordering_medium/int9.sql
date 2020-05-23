@@ -2,6 +2,7 @@
 .headers	on
 .nullvalue	NULL
 
+// Creating 2 views to reduce repeated code
 
 Create view v1 as
 Select idUtilizador as id1,idMusica,username as utilizador1
@@ -20,7 +21,23 @@ From UtilizadorSessao natural join Utilizador natural join Sessao natural join T
 group by idUtilizador,idMusica)
 Where (duracao > 300);
 
+Select nome as Musica,utilizador1,utilizador2
+From
+(
+  Select *
+  From v1
+)
+join
+(
+  Select *
+  From v2
+)
+using (idMusica) join Musica using (idMusica)
+where id1 < id2
+order by nome;
 
+/*
+// Code without using views
 
 Select nome as Musica,utilizador1,utilizador2
 From
@@ -43,18 +60,4 @@ using (idMusica) join Musica using (idMusica)
 where id1 < id2
 order by nome;
 
-
-Select nome as Musica,utilizador1,utilizador2
-From
-(
-  Select *
-  From v1
-)
-join
-(
-  Select *
-  From v2
-)
-using (idMusica) join Musica using (idMusica)
-where id1 < id2
-order by nome;
+*/

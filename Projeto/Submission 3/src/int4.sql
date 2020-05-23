@@ -5,3 +5,5 @@
 Select nomeArtistico as EntidadeMusical, nome as Musica
 From Musica join (Compoe  natural join entidadeMusical) using (idAlbum)
 Order by idMusica;
+
+// Tirar esta por ser demasiado fácil

@@ -28,33 +28,29 @@ Insert into tempoOuvido
 Values (1,151,67);
 
 Select username, nAlbum
-From 
+From
 (
     Select *, count(idMusica) as nrMusicas
-    From(
+    From
+    (
         Select idMusica,idAlbum,album.nome as nALbum,duracao,idUtilizador,tOuvido,username
         From Musica natural join
         (
             Select idUtilizador,idMusica,idSessao, max(duracao) as tOuvido
             From UtilizadorSessao natural join tempoOuvido
-            Group by idUtilizador,idMusica 
+            Group by idUtilizador,idMusica
         )
         natural join Musica natural join Utilizador join
         album using (idAlbum)
         where tOuvido > duracao
-        order by idUtilizador,idMusica
     )
     group by idUtilizador,idAlbum
 )
-join 
+join
 (
     Select nomeArtistico,album.nome as nAlbum, idAlbum , count(idMusica) as nrMusicas
-    From (Musica natural join Compoe  natural join entidadeMusical)
+    From Musica natural join Compoe  natural join entidadeMusical
     join Album using (idAlbum)
     group by nomeArtistico, idAlbum
 )
 using(idAlbum,nrMusicas,nAlbum)
-
-
-
-
