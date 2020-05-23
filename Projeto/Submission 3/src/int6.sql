@@ -2,9 +2,13 @@
 .headers	on
 .nullvalue	NULL
 
-SELECT  nomeArtistico as entidadeMusical,nome as album,anoLancamento, max(nr) AS nr_musicas
-FROM (
-  SELECT idAlbum, count(*) AS nr FROM Musica GROUP BY idAlbum
+Select username1 as Segue, username2 as Seguido
+From (
+    Select s1.idUtilizador, s1.idUtilizadorSeguido
+    From seguir s1, seguir s2
+    Where s1.idUtilizador = s2.idUtilizadorSeguido and s1.idUtilizadorSeguido = s2.idUtilizador
+) natural join (
+    Select u1.idUtilizador as name1, u2.idUtilizador as name2, u1.username as username1,u2.username as username2
+    From utilizador u1 join utilizador u2
 )
-NATURAL JOIN
-Album natural join Compoe natural join entidadeMusical;
+Where name1 = idutilizador and name2 = idUtilizadorSeguido and name1 < name2;
