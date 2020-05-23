@@ -13,7 +13,7 @@ INSERT INTO Pessoa VALUES(11, 'Matilde Vale', '2000-11-09', '4480-216', 'Rua Nov
 INSERT INTO Pessoa VALUES(12, 'Ana Santos', '2000-01-10', '4480-657', 'Rua 1');
 INSERT INTO Pessoa VALUES(13, 'Pedro Castro', '2000-03-19', '4860-510', 'Chacim');
 INSERT INTO Pessoa VALUES(14, 'Bernardo Vaz', '2000-08-25', '4860-528', 'Rua de Outeirinho');
-INSERT INTO Pessoa VALUES(15, 'Marta Vieitas', '1999-01-12', '3020-852', 'Avenida Sá da Bandeira');
+INSERT INTO Pessoa VALUES(15, 'Marta Vieitas', '1999-01-12', '3020-852', 'Avenida Sï¿½ da Bandeira');
 INSERT INTO Pessoa VALUES(16, 'Ines Machado', '2000-05-03', '3020-174', 'Rua das Azeiteiras');
 INSERT INTO Pessoa VALUES(17, 'Olena Shelvytska', '1998-06-09', '79007-888', 'Lviv Snow Stree');
 INSERT INTO Pessoa VALUES(18, 'Beatriz Mendes', '2000-06-01', '4850-715', 'Centro da Maia');
@@ -126,7 +126,7 @@ INSERT INTO Papel VALUES(6, 'Viola');
 
 -- EntidadeMusical 
 INSERT INTO EntidadeMusical VALUES(1, 'Nirvana', 'https://imgur.com/sQ5G0n7.jpg', 1987, 'Grande sucesso com o estilo grunge');
-INSERT INTO EntidadeMusical VALUES(2, 'Foo Fighters', 'https://imgur.com/ZvzxczA.jpg', 1994, 'Criada após o fim dos Nirvana');
+INSERT INTO EntidadeMusical VALUES(2, 'Foo Fighters', 'https://imgur.com/ZvzxczA.jpg', 1994, 'Criada apos o fim dos Nirvana');
 INSERT INTO EntidadeMusical VALUES(3, 'Radiohead', 'https://imgur.com/2oHQiO1.jpg', 1985, 'Creep foi o 1o e maior single deles');
 INSERT INTO EntidadeMusical VALUES(4, 'Billie Eilish', 'https://imgur.com/Gv4Ijf6.jpg', 2016, 'Ficou famosa com apenas 17 anos!!');
 INSERT INTO EntidadeMusical VALUES(5, 'Paramore', 'https://imgur.com/bRlpyPj.jpg', 2004, 'WE ARE PARAMORE!');
@@ -136,6 +136,7 @@ INSERT INTO EntidadeMusical VALUES(8, 'Lorde', 'https://imgur.com/fOzO8jd.jpg', 
 INSERT INTO EntidadeMusical VALUES(9, 'Eminem', 'https://imgur.com/A3Uav84.jpg', 1988, 'Melhor rapper de sempre');
 INSERT INTO EntidadeMusical VALUES(10, 'Muse', 'https://imgur.com/51doL6Y.jpg', 1994, 'Excelente banda, musicas geniais!');
 INSERT INTO EntidadeMusical VALUES(11, 'Green Day', 'https://imgur.com/WIojvyv.jpg', 1986, 'Do melhor do Punk Rock yeahhh');
+INSERT INTO EntidadeMusical VALUES(12, 'Queen', 'https://imgur.com/a/NGDoH7M.jpg', 1970, 'Os Reis da Musica');
 
 -- Album 
 INSERT INTO Album VALUES(1, 'Nevermind', 'https://imgur.com/pEvqHkD.jpg', 1991);
@@ -151,6 +152,7 @@ INSERT INTO Album VALUES(10, 'Melodrama', 'https://imgur.com/RjJRaBE.jpg', 2017)
 INSERT INTO Album VALUES(11, 'The Eminem Show', 'https://imgur.com/fRAUYWb.jpg', 2002);
 INSERT INTO Album VALUES(12, 'Origin of Symmetry', 'https://imgur.com/0jNvjCQ.jpg', 2001);
 INSERT INTO Album VALUES(13, 'American Idiot', 'https://imgur.com/LWZgliH.jpg', 2004);
+INSERT INTO Album VALUES(14, 'A Night at the Opera', 'https://imgur.com/a/iBTHKK7', 1975);
 
 -- Musica 
 INSERT INTO Musica VALUES(1, 1, 'Smells Like Teen Spirit', 302);
@@ -302,6 +304,8 @@ INSERT INTO Musica VALUES(146, 13, 'Letterbomb', 248);
 INSERT INTO Musica VALUES(147, 13, 'Wake Me Up When September Ends', 285);
 INSERT INTO Musica VALUES(148, 13, 'Homecoming', 558);
 INSERT INTO Musica VALUES(149, 13, 'Whatsername', 252);
+INSERT INTO Musica VALUES(150, 14, 'Bohemian Rhapsody', 360);
+INSERT INTO Musica VALUES(151, 14, 'Love of My Life', 222);
 
 -- EstiloMusical 
 INSERT INTO EstiloMusical VALUES(1, 'Alternative Rock');
@@ -384,6 +388,8 @@ INSERT INTO Sessao VALUES(60, '2020-04-01');
 -- TempoOuvido 
 INSERT INTO TempoOuvido VALUES(1, 1, 270);
 INSERT INTO TempoOuvido VALUES(1, 2, 340);
+INSERT INTO TempoOuvido VALUES(1, 150, 360);
+INSERT INTO TempoOuvido VALUES(1, 151, 300);
 INSERT INTO TempoOuvido VALUES(2, 3, 420);
 INSERT INTO TempoOuvido VALUES(2, 20, 80);
 INSERT INTO TempoOuvido VALUES(2, 21, 120);
@@ -722,6 +728,7 @@ INSERT INTO Compoe VALUES(8, 10);
 INSERT INTO Compoe VALUES(9, 11);
 INSERT INTO Compoe VALUES(10, 12);
 INSERT INTO Compoe VALUES(11, 13);
+INSERT INTO Compoe VALUES(12, 14);
 
 -- Segue 
 INSERT INTO Segue VALUES(1, 1);
