@@ -2,6 +2,26 @@
 .headers	on
 .nullvalue	NULL
 
-SELECT email, username,count(Distinct idEstiloMusical) AS nrEstilosFavoritados
-FROM FavoritoMusica NATURAL JOIN Utilizador NATURAL JOIN MusicaEstilo
-GROUP BY idUtilizador;
+SELECT nomeArtistico As entidadeMusical, nome AS estiloMusical, max(occurences) as nrMusicas
+FROM EntidadeMusical NATURAL JOIN
+(
+  SELECT idEntidadeMusical, nome, count(nome) as occurences
+  FROM Compoe
+  NATURAL JOIN
+  (
+    SELECT idEstiloMusical, idMusica, nome, idAlbum
+    FROM MusicaEstilo
+    NATURAL JOIN
+    (
+      SELECT *
+      FROM EstiloMusical JOIN Musica
+    )
+  )
+  GROUP BY idEntidadeMusical, idEstiloMusical
+)
+GROUP BY idEntidadeMusical;
+
+
+
+SELECT idEstiloMusical, idMusica, nome, idAlbum
+FROM MusicaEstilo JOIN (EstiloMusical JOIN Musica) using (idEstiloMusical)

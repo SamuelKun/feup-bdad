@@ -2,8 +2,9 @@
 .headers	on
 .nullvalue	NULL
 
-Select nomeArtistico as EntidadeMusical, nome as Musica
-From Musica join (Compoe  natural join entidadeMusical) using (idAlbum)
-Order by idMusica;
-
-// Tirar esta por ser demasiado fácil
+SELECT  nomeArtistico as entidadeMusical,nome as album,anoLancamento, max(nr) AS nr_musicas
+FROM (
+  SELECT idAlbum, count(*) AS nr FROM Musica GROUP BY idAlbum
+)
+NATURAL JOIN
+Album natural join Compoe natural join entidadeMusical;
