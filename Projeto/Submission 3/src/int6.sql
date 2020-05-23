@@ -2,13 +2,17 @@
 .headers	on
 .nullvalue	NULL
 
-Select username1 as Segue, username2 as Seguido
-From (
-    Select s1.idUtilizador, s1.idUtilizadorSeguido
-    From seguir s1, seguir s2
-    Where s1.idUtilizador = s2.idUtilizadorSeguido and s1.idUtilizadorSeguido = s2.idUtilizador
-) natural join (
-    Select u1.idUtilizador as name1, u2.idUtilizador as name2, u1.username as username1,u2.username as username2
-    From utilizador u1 join utilizador u2
+Select username,eMusical
+From
+(
+  Select idEntidadeMusical,nomeArtistico as eMusical, count(idAlbum) as nrOuvidos
+  From Compoe natural join EntidadeMusical natural join album
+  group by idEntidadeMusical
 )
-Where name1 = idutilizador and name2 = idUtilizadorSeguido and name1 < name2;
+natural join
+(
+  Select idUtilizador,idEntidadeMusical,username,count(idAlbum) as nrOuvidos
+  From FavoritoAlbum natural join album natural join utilizador natural join Compoe
+  group by idUtilizador,idEntidadeMusical
+)
+Order By idUtilizador

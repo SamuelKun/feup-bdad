@@ -2,64 +2,35 @@
 .headers	on
 .nullvalue	NULL
 
--- Creating 2 views to reduce repeated code
--- View 1
-Create view v1 as
-Select idUtilizador as id1,idMusica,username as utilizador1
+.read run.sql
+
+.print \nListar o utilizador e os albuns que já ouviram na totalidade
+
+Select username, nAlbum
 From
 (
-  Select *,sum(duracao) as tempoTotal
-  From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
-  group by idUtilizador,idMusica
-)
-Where (duracao > 300);
-
--- View 2
-Create view v2 as
-Select idUtilizador as id2,idMusica,username as utilizador2
-From (Select *,sum(duracao) as tempoTotal
-From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
-group by idUtilizador,idMusica)
-Where (duracao > 300);
-
--- Query
-Select nome as Musica,utilizador1,utilizador2
-From
-(
-  Select *
-  From v1
+    Select *, count(idMusica) as nrMusicas
+    From
+    (
+        Select idMusica,idAlbum,album.nome as nALbum,duracao,idUtilizador,tOuvido,username
+        From Musica natural join
+        (
+            Select idUtilizador,idMusica,idSessao, max(duracao) as tOuvido
+            From UtilizadorSessao natural join tempoOuvido
+            Group by idUtilizador,idMusica
+        )
+        natural join Utilizador join
+        album using (idAlbum)
+        where tOuvido >= duracao
+    )
+    group by idUtilizador,idAlbum
 )
 join
 (
-  Select *
-  From v2
+    Select nomeArtistico,album.nome as nAlbum, idAlbum , count(idMusica) as nrMusicas
+    From Musica natural join Compoe  natural join entidadeMusical
+    join Album using (idAlbum)
+    group by nomeArtistico, idAlbum
 )
-using (idMusica) join Musica using (idMusica)
-where id1 < id2
-order by nome;
-
-/*
--- Code without using views
-
-Select nome as Musica,utilizador1,utilizador2
-From
-(
-  Select idUtilizador as id1,idMusica,username as utilizador1
-  From (Select *,sum(duracao) as tempoTotal
-  From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
-  group by idUtilizador,idMusica)
-  Where (duracao > 300)
-)
-join
-(
-  Select idUtilizador as id2,idMusica,username as utilizador2
-  From (Select *,sum(duracao) as tempoTotal
-  From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
-  group by idUtilizador,idMusica)
-  Where (duracao > 300)
-)
-using (idMusica) join Musica using (idMusica)
-where id1 < id2
-order by nome;
-
-*/
+using(idAlbum,nrMusicas,nAlbum)
+Order by username
