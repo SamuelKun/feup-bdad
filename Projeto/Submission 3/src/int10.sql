@@ -33,3 +33,4 @@ join
     group by nomeArtistico, idAlbum
 )
 using(idAlbum,nrMusicas,nAlbum)
+Order by username
