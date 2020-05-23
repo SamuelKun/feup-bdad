@@ -40,7 +40,7 @@ From
             From UtilizadorSessao natural join tempoOuvido
             Group by idUtilizador,idMusica
         )
-        natural join Musica natural join Utilizador join
+        natural join Utilizador join
         album using (idAlbum)
         where tOuvido > duracao
     )
