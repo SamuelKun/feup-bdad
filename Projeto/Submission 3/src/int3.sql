@@ -2,7 +2,7 @@
 .headers	on
 .nullvalue	NULL
 
-SELECT *
+SELECT nome, dataNascimento, codPostal, morada
 FROM
 (
   SELECT idArtista AS idPessoa, idPapel FROM Desempenha NATURAL JOIN Artista WHERE idPapel = 1

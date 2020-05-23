@@ -20,8 +20,3 @@ FROM EntidadeMusical NATURAL JOIN
   GROUP BY idEntidadeMusical, idEstiloMusical
 )
 GROUP BY idEntidadeMusical;
-
-
-
-SELECT idEstiloMusical, idMusica, nome, idAlbum
-FROM MusicaEstilo JOIN (EstiloMusical JOIN Musica) using (idEstiloMusical)
