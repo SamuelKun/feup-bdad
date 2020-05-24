@@ -64,6 +64,8 @@ Group By idUtilizador;
 
 
 -- Query a mostras as estatísticas
+Drop view if exists stats;
+Create view stats as
 Select *
 From
 MusicasOuvidas natural join
@@ -74,6 +76,16 @@ EstilosMusicaisOuvidos natural left join
 Musicasfavoritadas natural left join
 Albunsfavoritados natural left join
 EMfavoritadas;
+
+
+Select idUtilizador,
+       nrMusicas,
+       nrAlbuns,
+       nrEntidadesMusicais,
+       tOuvido,nrEstilosMusicais,
+       coalesce(nrAlbunsSeguidos,0) as nrAlbunsSeguidos,
+       coalesce(nrEMseguidas,0) as nrEMseguidas
+From stats;
 
 
 
