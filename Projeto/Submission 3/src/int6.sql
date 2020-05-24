@@ -2,17 +2,21 @@
 .headers	on
 .nullvalue	NULL
 
-Select username,eMusical
-From
+SELECT nomeArtistico As entidadeMusical, nome AS estiloMusical, max(occurences) as nrMusicas
+FROM EntidadeMusical NATURAL JOIN
 (
-  Select idEntidadeMusical,nomeArtistico as eMusical, count(idAlbum) as nrOuvidos
-  From Compoe natural join EntidadeMusical natural join album
-  group by idEntidadeMusical
+  SELECT idEntidadeMusical, nome, count(nome) as occurences
+  FROM Compoe
+  NATURAL JOIN
+  (
+    SELECT idEstiloMusical, idMusica, nome, idAlbum
+    FROM MusicaEstilo
+    NATURAL JOIN
+    (
+      SELECT *
+      FROM EstiloMusical JOIN Musica
+    )
+  )
+  GROUP BY idEntidadeMusical, idEstiloMusical
 )
-natural join
-(
-  Select idUtilizador,idEntidadeMusical,username,count(idAlbum) as nrOuvidos
-  From FavoritoAlbum natural join album natural join utilizador natural join Compoe
-  group by idUtilizador,idEntidadeMusical
-)
-Order By idUtilizador
+GROUP BY idEntidadeMusical;

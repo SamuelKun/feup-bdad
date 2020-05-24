@@ -2,21 +2,64 @@
 .headers	on
 .nullvalue	NULL
 
-SELECT nomeArtistico As entidadeMusical, nome AS estiloMusical, max(occurences) as nrMusicas
-FROM EntidadeMusical NATURAL JOIN
+-- Creating 2 views to reduce repeated code
+-- View 1
+Create view v1 as
+Select idUtilizador as id1,idMusica,username as utilizador1
+From
 (
-  SELECT idEntidadeMusical, nome, count(nome) as occurences
-  FROM Compoe
-  NATURAL JOIN
-  (
-    SELECT idEstiloMusical, idMusica, nome, idAlbum
-    FROM MusicaEstilo
-    NATURAL JOIN
-    (
-      SELECT *
-      FROM EstiloMusical JOIN Musica
-    )
-  )
-  GROUP BY idEntidadeMusical, idEstiloMusical
+  Select *,sum(duracao) as tempoTotal
+  From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+  group by idUtilizador,idMusica
 )
-GROUP BY idEntidadeMusical;
+Where (duracao > 300);
+
+-- View 2
+Create view v2 as
+Select idUtilizador as id2,idMusica,username as utilizador2
+From (Select *,sum(duracao) as tempoTotal
+From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+group by idUtilizador,idMusica)
+Where (duracao > 300);
+
+-- Query
+Select nome as Musica,utilizador1,utilizador2
+From
+(
+  Select *
+  From v1
+)
+join
+(
+  Select *
+  From v2
+)
+using (idMusica) join Musica using (idMusica)
+where id1 < id2
+order by nome;
+
+/*
+-- Code without using views
+
+Select nome as Musica,utilizador1,utilizador2
+From
+(
+  Select idUtilizador as id1,idMusica,username as utilizador1
+  From (Select *,sum(duracao) as tempoTotal
+  From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+  group by idUtilizador,idMusica)
+  Where (duracao > 300)
+)
+join
+(
+  Select idUtilizador as id2,idMusica,username as utilizador2
+  From (Select *,sum(duracao) as tempoTotal
+  From UtilizadorSessao natural join Utilizador natural join Sessao natural join TempoOuvido
+  group by idUtilizador,idMusica)
+  Where (duracao > 300)
+)
+using (idMusica) join Musica using (idMusica)
+where id1 < id2
+order by nome;
+
+*/
