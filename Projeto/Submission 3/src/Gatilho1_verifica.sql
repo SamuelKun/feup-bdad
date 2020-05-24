@@ -1,6 +1,3 @@
-.read criar.sql
-.read povoar.sql
-
 Select * from TempoOuvido
 Order By idSessao
 Limit 5;
