@@ -1,3 +1,6 @@
+.read criar.sql
+.read povoar.sql
+
 Select * from Compoe;
 
 .print "\nTentativa de adicionar um album de 1991 aos Paramore, uma banda fundada em 2004"

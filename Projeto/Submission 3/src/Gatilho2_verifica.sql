@@ -1,3 +1,6 @@
+.read criar.sql
+.read povoar.sql
+
 Select * from Segue;
 
 .print "\nTentativa do Utilizador 1 de Seguir a Billie Eilish sem ter nos favoritos uma música dela"
