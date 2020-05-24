@@ -63,29 +63,31 @@ From segue
 Group By idUtilizador;
 
 
--- Query a mostras as estatísticas
+-- Views que mostras as estatísticas
 Drop view if exists stats;
 Create view stats as
 Select *
-From
-MusicasOuvidas natural join
-AlbunsOuvidos natural join
-EMOuvidas natural join
+From Utilizador natural left join
+MusicasOuvidas natural left join
+AlbunsOuvidos natural left join
+EMOuvidas natural left  join
 MusicaTempoOuvido natural left join
 EstilosMusicaisOuvidos natural left join
 Musicasfavoritadas natural left join
 Albunsfavoritados natural left join
 EMfavoritadas;
 
-
-Select idUtilizador,
-       nrMusicas,
-       nrAlbuns,
-       nrEntidadesMusicais,
-       tOuvido,nrEstilosMusicais,
+-- Query a mostras as estatísticas ( motra usrname em vez de id e os valores a 0 em vez de "null" )
+Select username,
+       coalesce(nrMusicas,0) as nrMusicas, 
+       coalesce(nrAlbuns,0) as nrAlbuns,
+       coalesce(nrEntidadesMusicais,0) as nrEntidadesMusicais,
+       coalesce(tOuvido,0) as tOuvido,
+       coalesce(nrEstilosMusicais,0) as nrEstilosMusicais,
        coalesce(nrAlbunsSeguidos,0) as nrAlbunsSeguidos,
        coalesce(nrEMseguidas,0) as nrEMseguidas
 From stats;
+
 
 
 
