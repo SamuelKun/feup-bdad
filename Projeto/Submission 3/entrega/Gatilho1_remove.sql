@@ -1,1 +1,0 @@
-Drop trigger T1;

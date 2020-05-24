@@ -1,1 +1,0 @@
-Drop Trigger T3;
